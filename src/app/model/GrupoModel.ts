@@ -1,6 +1,9 @@
 import { PostagemModel } from "./PostagemModel"
 import { UserModel } from "./UserModel"
 
+
+
+
 export class GrupoModel{
     public idGrupo: number
 	public nomeGrupo: string

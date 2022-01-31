@@ -1,0 +1,12 @@
+.fundo {
+    background:#e7e7e7;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    width: 100%;
+    height: 900px;
+    z-index: 1;
+    opacity:10;
+      background: url('https://1.bp.blogspot.com/-7Cks4TEN-jc/WynthoJKUnI/AAAAAAAALqE/WnqT5PSi3CwduJUwp4muZl2mdjBD1DKZACLcBGAs/s2560/material-design-2560x1440-stock-yellow-shapes-material-hd-14202.jpg') left no-repeat;
+    background-size:cover;
+  }
