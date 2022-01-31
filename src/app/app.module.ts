@@ -12,7 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
-
+import { HomeComponent } from './home/home.component';
+import { GrupoComponent } from './grupo/grupo.component';
 
 
 
@@ -25,9 +26,9 @@ import { ContatoComponent } from './contato/contato.component';
     MenuComponent,
     RodapeComponent,
     SobreComponent,
-    ContatoComponent
-    
-
+    ContatoComponent,
+    HomeComponent,
+    GrupoComponent
   ],
   imports: [
     BrowserModule,
