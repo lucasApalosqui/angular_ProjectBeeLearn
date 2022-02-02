@@ -16,6 +16,8 @@ import { ContatoComponent } from './contato/contato.component';
 
 import { GrupoComponent } from './grupo/grupo.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { GrupoEditComponent } from './edit/grupo-edit/grupo-edit.component';
+import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.component';
 
 
 
@@ -32,7 +34,9 @@ import { InicioComponent } from './inicio/inicio.component';
     ContatoComponent,
     HomeComponent,
     GrupoComponent,
-    InicioComponent
+    InicioComponent,
+    GrupoEditComponent,
+    GrupoDeleteComponent
 
   ],
   

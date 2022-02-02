@@ -15,10 +15,6 @@
                     <h3>Nome de Usuário</h3>
                     <h6>tiago@email.com</h6>
                     <h6>Tipo de Usuário: Instrutor</h6>
-                       
-                            <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
-                            <a class="btn btn-dark" href="#postagens">Ver Postagens</a>
-        
                         
                 </div>
         
@@ -43,9 +39,30 @@
                         <div class="nav nav-tabs " style="max-width: 1000px;" id="nav-tab" role="tablist">
                           <a class="nav-item nav-link active text-secondary font-weight-bold " id="nav-home-tab" data-toggle="tab" href="#nav-todas" role="tab" aria-controls="nav-home" aria-selected="true">Meus Grupos</a>
                           <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#nav-minhas" role="tab" aria-controls="nav-profile" aria-selected="false">Minhas Postagens</a>
-                          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-contact-tab" data-toggle="tab" href="#nav-tema" role="tab" aria-controls="nav-contact" aria-selected="false">Explore</a>
+                          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-tab" data-toggle="tab" href="#nav-todas" role="tab" aria-controls="nav-todas" aria-selected="false">Explore</a>
                         </div>
                       </nav>
+
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-todas" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+                        <div class="tab-pane fade" id="nav-minhas" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
+                        <div class="tab-pane fade" id="nav-todas" role="tabpanel" aria-labelledby="nav-todas-tab">
+                          <div class="modal-body">
+                            <div class="card-columns">
+                              <div class="card text-center" *ngFor='let item of listaGrupo'>
+                                <div class="card-body">
+                                  <h5 class="card-title m-0">{{item.nomeGrupo}}</h5>
+                                  <small class="text-muted"> Descrição do Grupo: {{item.descricao}}</small>
+                                <a [routerLink]="['/grupo-edit', item.idGrupo]" class="text-info mr-3" href="">Editar</a>
+                                <a [routerLink]="['/grupo-delete', item.idGrupo]" class="text-danger" href="">Apagar</a>
+                    
+                              </div>
+                            </div>
+                          </div>
+                    
+                        </div>
+                        </div>
+                      </div>
 
                       <div class="container">
 
@@ -124,7 +141,7 @@
                       </div>
             
                       </div>
-                    </div>
+                  
                 </div>
 
             </div>
@@ -136,7 +153,40 @@
  
 
 <div class="form-group">
-<label for="texto">Escolha um grupo ou <a data-dismiss="modal" routerLink="/grupo">cadastre um novo grupo</a></label>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
+    Cadastre um novo grupo
+  </button>
 
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Grup</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nome do Grupo</label>
+              <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control" id="nomeGrupo">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Descrição do Grupo</label>
+              <textarea [(ngModel)]='grupo.descricao' class="form-control" id="descricao"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)='cadastrar()'>Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
