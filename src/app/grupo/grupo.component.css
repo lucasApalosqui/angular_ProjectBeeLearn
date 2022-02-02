@@ -80,7 +80,6 @@
     width: 0;
     height: -50px;
     border-left: 250px solid transparent;
-    border-top: 250px;
     border-right: 250px solid transparent;
     border-bottom: 25px solid rgb(255, 230, 0);
  }
