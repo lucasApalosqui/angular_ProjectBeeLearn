@@ -12,14 +12,14 @@
             <div class="col-md-2 midle p-0 container" style="background-color: #0c0f13">
                 <div class="border navl">
                     <ul class="nav flex-column d-flex justify-content-center align-items-center">
-                    <li class="nav-item ">
-                        <a class="nav-link active" href="#">Postagens</a>
+                    <li class="nav-item">
+                        <button class="btn btn-dark" data-toggle="modal" style="width: 100%;" href="#novaPostagem">Postagens</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Links Auxiliares</a>
+                        <button class="btn btn-dark" style="width: 100%;" href="#">Links auxiliares</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Apostilas</a>
+                        <button class="btn btn-dark" style="width: 100%;" href="#">Apostilas</button>
                     </li>
                 </ul></div>
                 </div>
@@ -90,3 +90,101 @@
 
 </div>
 
+<<<<<<< HEAD
+=======
+<div class="container-fluid">
+
+    <div class="row bg-secundary">
+    <div class="col-md-12 text-dark">
+    
+    <a routerLink="/home" class="text-dark text-left">
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i> home
+    </a>
+    
+    <h1 class="fs-54 text-center ">Grupo</h1>
+    <h5 class="fs-18 text-center bg-white">Veja aqui todos os grupo cadastrados ou cadastre um novo:
+    </h5>
+    
+    <div class="row d-flex justify-content-center mt-4 mb-5">
+    <div class="col-md-3">
+        <div class="form-grup">
+            <input [(ngModel)]='grupo.descricao' type="text" class="forme-control" id="descricao" placeholder="Digite a descrição do gurpo">
+        </div>
+    
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-light"(click)='cadastrar()'>Cadastrar</button>
+        </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    </div>
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="text-center">Todos os grupos</h2>
+            </div>
+        </div>
+    
+        <div class="row mt-3 mb-5 d-flex justify-content-center">
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Descricao</th>
+                        <th scope="col" class="text-right">Modificacoes</th>
+                      
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                      <tr *ngFor='let grupo of listaGrupo'>
+                        <th>{{grupo.idGrupo}}</th>
+                        <td>{{grupo.descricao}}</td>
+                        <td class="d-flexm justify-content-end">
+                          <button class="btn btn-info mr-3">Editar</button>
+                          <button class="btn btn-danger">Apagar</button>
+                        </td>
+                        
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" id="hexagono">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
+            </div>
+            <div class="form-group">
+                <label for="titulo">Descrição</label>
+                <textarea name="texto" id="texto" rows="3" class="form-control" placeholder="Digite a descrição"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-dark">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+>>>>>>> 7c87e2c5fc53f6145c479fa7a32306c3b62ddd12
