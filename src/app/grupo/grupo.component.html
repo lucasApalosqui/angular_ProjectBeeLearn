@@ -12,14 +12,14 @@
             <div class="col-md-2 midle p-0 container" style="background-color: #0c0f13">
                 <div class="border navl">
                     <ul class="nav flex-column d-flex justify-content-center align-items-center">
-                    <li class="nav-item ">
-                        <a class="nav-link active" href="#">Postagens</a>
+                    <li class="nav-item">
+                        <button class="btn btn-dark" data-toggle="modal" style="width: 100%;" href="#novaPostagem">Postagens</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Links Auxiliares</a>
+                        <button class="btn btn-dark" style="width: 100%;" href="#">Links auxiliares</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Apostilas</a>
+                        <button class="btn btn-dark" style="width: 100%;" href="#">Apostilas</button>
                     </li>
                 </ul></div>
                 </div>
@@ -158,3 +158,54 @@
         </div>
     </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" id="hexagono">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
+            </div>
+            <div class="form-group">
+                <label for="titulo">Descrição</label>
+                <textarea name="texto" id="texto" rows="3" class="form-control" placeholder="Digite a descrição"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-dark">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
