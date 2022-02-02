@@ -12,6 +12,8 @@ import { AuthService } from '../service/auth.service';
 export class CadastrarComponent implements OnInit {
 
   user: UserModel = new UserModel
+  confirmarSenha: string
+
 
   constructor(
     private authService: AuthService,
@@ -22,12 +24,22 @@ export class CadastrarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  cadastrar(){
-    this.authService.cadastrar(this.user).subscribe((resp: UserModel) => {
-      this.user = resp
-      this.router.navigate(['/entrar'])
-      alert('usuario cadastrado com sucesso')
-    })
+  confirmSenha(event: any) {
+    this.confirmarSenha = event.target.value
   }
 
-}
+  cadastrar() {
+ 
+    if (this.user.senha != this.confirmarSenha){
+      alert('As senhas são diferentes')
+ 
+    } else{
+    this.authService.cadastrar(this.user).subscribe ((resp : UserModel) =>{
+      this.user = resp
+      this.router.navigate (['/entrar'])
+      alert('Usuário cadastrado com sucesso!')}
+ 
+    )}
+ 
+    }
+  }

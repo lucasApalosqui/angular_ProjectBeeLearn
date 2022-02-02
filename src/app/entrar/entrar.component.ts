@@ -22,24 +22,36 @@ export class EntrarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-logar() {
+entrar() {
   this.auth.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
-  this.userLogin = resp
+    this.userLogin = resp
 
-  environment.token = this.userLogin.token
-  environment.urlAvatar = this.userLogin.urlAvatar
-  environment.xp = this.userLogin.xp
-  environment.nomeUsuario = this.userLogin.nomeUsuario
-  environment.idUsuario = this.userLogin.idUsuario
-  environment.nivel = this.userLogin.nivel
+    environment.idUsuario = this.userLogin.idUsuario
+    environment.bio = this.userLogin.bio
+    environment.email = this.userLogin.email
+    environment.nomeUsuario = this.userLogin.nomeUsuario
+    environment.senha = this.userLogin.senha
+    environment.tipo = this.userLogin.tipo
+    environment.token = this.userLogin.token
+    environment.tokenBasic = this.userLogin.tokenBasic
+    environment.foto  = this.userLogin.foto
 
-  this.router.navigate(['/home'])
-}, erro =>{
-  if(erro.status == 500){
-    alert('Usúario ou senha incorretos!')
-  }
+    console.log(environment.bio)
+    console.log(environment.email)
+    console.log(environment.idUsuario)
+    console.log(environment.foto)
+    console.log(environment.nomeUsuario)
+    console.log(environment.senha)
+    console.log(environment.tipo)
+    console.log(environment.token)
+    console.log(environment.tokenBasic)
 
+
+   this.router.navigate(['/home'])
+  }, erro =>{
+    if(erro.status == 500){
+      alert('Usúario ou senha incorretos!')
+    }
 })
 }
-
 }
