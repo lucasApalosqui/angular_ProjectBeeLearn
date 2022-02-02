@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { GrupoModel } from '../model/GrupoModel';
@@ -6,6 +7,7 @@ import { PostagemModel } from '../model/PostagemModel';
 import { UserModel } from '../model/UserModel';
 import { GrupoModelService } from '../service/grupo.service';
 import { PostagemService } from '../service/postagem.service';
+
 
 @Component({
   selector: 'app-grupo',
