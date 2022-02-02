@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
 import { UserModel } from '../model/UserModel';
 
@@ -20,4 +21,15 @@ export class AuthService {
   cadastrar(user: UserModel): Observable<UserModel> {
     return this.http.post<UserModel>('https://beelearn.herokuapp.com/api/v1/user/register', user)
   }
+
+  logado(){
+    let ok = false
+  
+    if(environment.token !=''){
+    ok = true
+    }
+    return ok
+  
+  }
+
 }

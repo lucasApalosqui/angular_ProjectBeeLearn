@@ -13,6 +13,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
+
 import { GrupoComponent } from './grupo/grupo.component';
 
 
@@ -30,7 +31,6 @@ import { GrupoComponent } from './grupo/grupo.component';
     ContatoComponent,
     HomeComponent,
     GrupoComponent
-    
 
   ],
   imports: [
