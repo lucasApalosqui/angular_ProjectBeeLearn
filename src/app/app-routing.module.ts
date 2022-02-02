@@ -5,6 +5,7 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { GrupoComponent } from './grupo/grupo.component';
 import { HomeComponent } from './home/home.component';
 
+
 const routes: Routes = [
 {path:'', redirectTo: 'entrar', pathMatch: 'full'},
 
@@ -14,6 +15,7 @@ const routes: Routes = [
 {path:'cadastrar',component: CadastrarComponent},
 
 {path:'home', component: HomeComponent},
+
 {path:'grupo',component: GrupoComponent}
 
 
