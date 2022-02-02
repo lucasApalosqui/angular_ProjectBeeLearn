@@ -37,17 +37,10 @@ listaPostagens: PostagemModel[]
       this.router.navigate(['/entrar'])
     }
   
-    this.findAllGrupo()
+
     this.getAllPostagens()
   }
 
-
-  findAllGrupo(){
-    this.grupoModelService.getAllGrupo().subscribe((resp:GrupoModel[])=>{
-  this.listaGrupo = resp
-    })
-
-  }
 
   findByIdGrupo() {
     this.grupoModelService.getByIdGrupo(this.idGrupo).subscribe((resp: GrupoModel) =>{
@@ -58,15 +51,6 @@ listaPostagens: PostagemModel[]
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: PostagemModel[]) => {
       this.listaPostagens = resp
-    })
-  }
-
-  cadastrar(){
-    this.grupoModelService.postGrupo(this.grupo).subscribe((resp:GrupoModel)=>{
-      this.grupo = resp 
-    alert('Grupo cadastrado com sucesso!')
-    this.findAllGrupo()
-    this.grupo=new GrupoModel()
     })
   }
 

@@ -51,6 +51,10 @@
     text-align: center;
 }
 
+.navl-2{
+    background: #0c0f13;
+}
+
 
 .navl a{
     padding-bottom: 15px;
@@ -66,3 +70,56 @@
     background-color: #1e2630;
     border-radius: 10px;
 }
+
+#hexagono {
+    width: 1000px;
+    background: rgb(255, 230, 0);
+    position: relative;
+ }
+ #hexagono:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: -50px;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-bottom: 25px solid rgb(255, 230, 0);
+ }
+ #hexagono:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 25px solid rgb(255, 230, 0);
+ }
+
+ .post-square{
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     padding-right: 45px;
+     padding-left: 50px;
+     padding-top: 30px;
+     padding-bottom: 50px;
+ }
+
+ .post-text{
+     border-style: solid;
+     border-radius: 15px;
+     border-width: 1px;
+     padding-left: 15px;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     padding-right: 10px;
+ }
+
+ .user-label img {
+     width: 35px;
+     height: 35px;
+ }

@@ -4,10 +4,11 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { GrupoComponent } from './grupo/grupo.component';
 import { HomeComponent } from './home/home.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 const routes: Routes = [
-{path:'', redirectTo: 'entrar', pathMatch: 'full'},
+{path:'', redirectTo: 'inicio', pathMatch: 'full'},
 
 
 { path:'entrar', component: EntrarComponent},
@@ -16,8 +17,8 @@ const routes: Routes = [
 
 {path:'home', component: HomeComponent},
 
-{path:'grupo',component: GrupoComponent}
-
+{path:'grupo',component: GrupoComponent},
+{path:'inicio',component: InicioComponent}
 
 ];
 
