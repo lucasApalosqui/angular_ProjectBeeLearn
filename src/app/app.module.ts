@@ -14,6 +14,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
 import { HomeComponent } from './home/home.component';
 import { GrupoComponent } from './grupo/grupo.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
@@ -28,7 +29,8 @@ import { GrupoComponent } from './grupo/grupo.component';
     SobreComponent,
     ContatoComponent,
     HomeComponent,
-    GrupoComponent
+    GrupoComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
