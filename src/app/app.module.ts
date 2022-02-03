@@ -7,6 +7,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common'
 
 import { ComponentMenuRodapeComponent } from './component-menu-rodape/component-menu-rodape.component';
 import { MenuComponent } from './menu/menu.component';
@@ -46,7 +47,10 @@ import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.compone
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

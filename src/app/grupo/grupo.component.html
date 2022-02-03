@@ -1,14 +1,12 @@
 <div class="all">
     <div class="col-md-12 capa"></div>
-    <div class="container-fluid">
-        <div class="row mt-1 mb-2 ml-2">
-            <div class="col-md-10"><h2>Nome do Grupo</h2></div>
-            <div class="col-md-2 d-flex align-items-center">
-                <button href="#novaPostagem" data-toggle="modal" class="btn btn-dark" style="background-color: black;">enviar postagem</button>
-            </div>
-    </div>
-    
-    
+
+    <div class="row">
+        <div class="col-md-8"><h2>{{nomeGrupo}}</h2></div>
+        <div class="col-md-4 d-flex align-items-center">
+            <button href="#novaPostagem" data-toggle="modal" class="btn btn-dark" style="background-color: black;">enviar postagem</button>
+        </div>
+
         
     </div>
     <div class="container">
@@ -30,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-8 midle p-0 container d-flex justify-content-center align-items-center"
-                style="background-image: url(https://i.imgur.com/IWjuxmF.png); border-style: solid; border-width: 1px; border-color: rgb(161, 161, 161);">
+                style="background-image: url({{urlImagem}}); border-style: solid; border-width: 1px; border-color: rgb(161, 161, 161);">
                 <h3>Pagina inicial</h3>
             </div>
             
