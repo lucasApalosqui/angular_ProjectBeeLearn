@@ -26,6 +26,10 @@ idUsuario = environment.idUsuario
 listaPostagens: PostagemModel[]
  
 
+ nomeGrupo = environment.nomeGrupo
+	descricao = environment.descricao
+	urlImagem = environment.urlImagem
+
   constructor(
     private router:Router,
     private grupoModelService: GrupoModelService,
