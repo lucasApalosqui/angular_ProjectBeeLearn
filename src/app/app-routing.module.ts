@@ -23,7 +23,7 @@ const routes: Routes = [
 
 {path:'inicio',component: InicioComponent},
 
-{path: 'grupo-edit/:idGrupo', component: GrupoEditComponent },
+{path: 'grupo-edit/:idEditarG', component: GrupoEditComponent },
 
 {path: 'grupo-delete/:idGrupo', component: GrupoDeleteComponent }
 

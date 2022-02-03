@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { GrupoModel } from '../model/GrupoModel';
 import { PostagemModel } from '../model/PostagemModel';
@@ -18,24 +18,27 @@ import { PostagemService } from '../service/postagem.service';
 export class GrupoComponent implements OnInit {
 
 grupo: GrupoModel = new GrupoModel()
-listaGrupo: GrupoModel[]
-idGrupo: number
 postagem: PostagemModel = new PostagemModel()
 usuario: UserModel = new UserModel()
-idUsuario = environment.idUsuario
-listaPostagens: PostagemModel[]
- 
 
- nomeGrupo = environment.nomeGrupo
-	descricao = environment.descricao
-	urlImagem = environment.urlImagem
+listaGrupo: GrupoModel[]
+listaPostagens: PostagemModel[]
+
+idGrupo: number
+
+idUsuario = environment.idUsuario
+
+
+nomeGrupo = environment.nomeGrupo
+descricao = environment.descricao
+urlImagem = environment.urlImagem
 
   constructor(
     private router:Router,
     private grupoModelService: GrupoModelService,
     private postagemService: PostagemService,
-    private authService: AuthService
-      
+    private authService: AuthService,
+    private route: ActivatedRoute
     
   ) { }
 
@@ -43,6 +46,8 @@ listaPostagens: PostagemModel[]
     if(environment.token==''){
       this.router.navigate(['/entrar'])
     }
+
+   
   
     this.getAllgrupo()
     this.getAllPostagens()
@@ -54,11 +59,18 @@ listaPostagens: PostagemModel[]
     })
   }
 
-  findByIdGrupo() {
+  findByIdGrupoNovo() {
     this.grupoModelService.getByIdGrupo(this.idGrupo).subscribe((resp: GrupoModel) =>{
       this.grupo = resp
     })
   }
+
+  findByIdGrupo(idGrupo: number) {
+    this.grupoModelService.getByIdGrupo(idGrupo).subscribe ((resp: GrupoModel) => {
+      this.grupo = resp
+    })
+  }
+
 
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: PostagemModel[]) => {

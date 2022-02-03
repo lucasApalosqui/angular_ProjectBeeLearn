@@ -15,4 +15,6 @@ export const environment = {
 	 titulo:'',
 	 postagem: '',
 	 data: 0,
+	 grupo: '',
+	 user:'',
 };

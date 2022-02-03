@@ -38,85 +38,22 @@
         
         <div class="container">
             <div class="row  d-flex justify-content-center  mt-3" >
+
+              <div class="container mb-5 mt-5" id="postagens">
+
+                <nav>
+                  <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+              
+                    <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+              
+                    <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+              
+                    <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por tema</a>
+              
+                  </div>
+                </nav>
+              
                 
-                    <nav>
-                        <div class="nav nav-tabs " style="max-width: 1000px;" id="nav-tab" role="tablist">
-
-
-                          <a class="nav-item nav-link active text-secondary font-weight-bold " id="nav-home-tab" data-toggle="tab" href="#nav-todas" role="tab" aria-controls="nav-home" aria-selected="true">Grupos Criados</a>
-                          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#nav-minhas" role="tab" aria-controls="nav-profile" aria-selected="false">Meus Grupos</a>
-                          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-contact-tab" data-toggle="tab" href="#nav-tema" role="tab" aria-controls="nav-contact" aria-selected="false">Explore</a>
-
-                        </div>
-                      </nav>
-
-                      <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-todas" role="tabpanel" aria-labelledby="nav-home-tab"></div>
-                        <div class="tab-pane fade" id="nav-minhas" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
-                        <div class="tab-pane fade" id="nav-todas" role="tabpanel" aria-labelledby="nav-todas-tab">
-                          <div class="modal-body">
-                            <div class="card-columns">
-                              <div class="card text-center" *ngFor='let item of listaGrupo'>
-                                <div class="card-body">
-                                  <h5 class="card-title m-0">{{item.nomeGrupo}}</h5>
-                                  <small class="text-muted"> Descrição do Grupo: {{item.descricao}}</small>
-                                <a [routerLink]="['/grupo-edit', item.idGrupo]" class="text-info mr-3" href="">Editar</a>
-                                <a [routerLink]="['/grupo-delete', item.idGrupo]" class="text-danger" href="">Apagar</a>
-                    
-                              </div>
-                            </div>
-                          </div>
-                    
-                        </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-
-                      <div class="row d-flex justify-content-center mt-1">
-
-                        <section id="lab">
-                            <div class="sectionheader">	</div>	
-                                <article>
-                                    <table>
-                                        <tbody>
-                                            <tr *ngFor = 'let item of listaGrupo'>
-                                    <div class="lab_item">		
-                                    <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <td><div class="hexagon-in2" style="background-image: url({{item.urlImagem}});">                
-                                            </div></td>
-                                         </div>
-                                     </div>
-                                     </div>
-                                    </tr>
-                                    </tbody>
-                                    </table>
-                                                                          
-                                     
-                                    
-                            
-
-                                </article>
-                            </section>
-
-                      </div>
-            
-                      </div>
-                  
-                </div>
-
-            </div>
-
-    </div>
-
-</div>
- 
- 
-
-<div class="form-group">
-
-
 <!-- Button trigger modal -->
 <!-- Modal -->
 <div class="modal fade" id="criargrupo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
