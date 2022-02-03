@@ -17,7 +17,7 @@
                     <h6>{{email}}</h6>
                     <h6>{{tipo}}</h6>
                        
-                            <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#novaPostagem">Criar Grupo</button>
+                            <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#criargrupo">Criar Grupo</button>
 
 
                 </div>
@@ -77,70 +77,25 @@
                         <section id="lab">
                             <div class="sectionheader">	</div>	
                                 <article>
-                            
+                                    <table>
+                                        <tbody>
+                                            <tr *ngFor = 'let item of listaGrupo'>
                                     <div class="lab_item">		
                                     <div class="hexagon hexagon2">
                                         <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url('https://i.imgur.com/EMPW4r8.jpg');">                
-                                            </div>
+                                            <td><div class="hexagon-in2" style="background-image: url({{item.urlImagem}});">                
+                                            </div></td>
                                          </div>
                                      </div>
                                      </div>
-                                      <div class="lab_item">
-                                      <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/TuvfIPi.jpg);">                
-                                            </div>
-                                         </div>
-                                     </div>
-                                     </div>
-                             <div class="lab_item">
-                                      <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/ba2T3ps.jpg);">                
-                                            </div>
-                                         </div>
-                                     </div>
-                                     </div>
-                             <div class="lab_item">
-                                      <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/p9q545P.jpg);">                
-                                            </div>
-                                         </div>
-                                     </div>
-                                     </div>
-                                          <div class="lab_item">        
-                                    <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/mcqLjEd.jpg);">                
-                                            </div>
-                                         </div>
-                                     </div>
-                                     </div>
-                                      <div class="lab_item">
-                                      <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/IhZNsg2.jpg);">                
-                                            </div>
-                                         </div>
-                                     </div>
-                                     </div>
-                                     <div class="lab_item">
-                                        <div class="hexagon hexagon2">
-                                          <div class="hexagon-in1">
-                                              <div class="hexagon-in2" style="background-image: url(https://i.imgur.com/mtPhv29.jpg);">                
-                                              </div>
-                                           </div>
-                                       </div>
-                                       </div>
-                    
-                                         
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                                                          
                                      
                                     
                             
-                                     
-                                      
+
                                 </article>
                             </section>
 
@@ -162,41 +117,38 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
-    Cadastre um novo grupo
-  </button>
-
-
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New Grup</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Nome do Grupo</label>
-              <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control" id="nomeGrupo">
+<!-- Modal -->
+<div class="modal fade" id="criargrupo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" id="hexagono">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Grupo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Descrição do Grupo</label>
-              <textarea [(ngModel)]='grupo.descricao' class="form-control" id="descricao"></textarea>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="nomeGrupo">Título</label>
+                    <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control" id="titulo" placeholder="Digite o título">
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea [(ngModel)]='grupo.descricao'name="texto" id="texto" rows="3" class="form-control"
+                        placeholder="Digite a descrição"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="foto">Foto de capa</label>
+                    <input [(ngModel)]='grupo.urlImagem' type="text" class="form-control" id="foto" placeholder="Insira um link">
+                </div>
             </div>
-          </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-dark" (click) = 'cadastrar()'>Confirmar</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)='cadastrar()'>Cadastrar</button>
-        </div>
-      </div>
     </div>
-  </div>
-
 </div>
-

@@ -8,5 +8,8 @@ export const environment = {
 	 tokenBasic: '',
 	 foto: '',
 	 tipo: '',
+	 nomeGrupo:'',
+	 descricao: '',
+	 urlImagem: ''
 
 };
