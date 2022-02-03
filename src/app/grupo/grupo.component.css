@@ -41,6 +41,7 @@
 
 .navl {
     background: #0c0f13;
+    background-color: #0c0f13;
 
 }
 .navl li {
@@ -67,7 +68,7 @@
 }
 
 .navl a:hover{
-    background-color: #1e2630;
+    background-color: CC;
     border-radius: 10px;
 }
 
@@ -107,6 +108,7 @@
      padding-left: 50px;
      padding-top: 30px;
      padding-bottom: 50px;
+     background-color: rgb(226, 230, 0);
  }
 
  .post-text{
@@ -117,9 +119,21 @@
      padding-top: 15px;
      padding-bottom: 15px;
      padding-right: 10px;
+     background-color:rgb(17, 17, 1) ;
  }
 
  .user-label img {
      width: 35px;
      height: 35px;
+ }
+
+ .but {
+     width: 120px;
+     border-radius: 20px;
+     background-color: #0c0f13;
+     color: white;
+ }
+
+ .pb-5 {
+     color: #0c0f13;
  }
