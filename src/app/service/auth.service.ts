@@ -22,14 +22,15 @@ export class AuthService {
     return this.http.post<UserModel>('http://localhost:8080/api/v1/user/register', user)
   }
 
+
   logado(){
-    let ok = false
-  
-    if(environment.token !=''){
-    ok = true
+    let ok: boolean = false
+
+    if (environment.token != ''){
+      ok = true
     }
+
     return ok
-  
   }
 
   getByIdUser(id: number): Observable<UserModel> {

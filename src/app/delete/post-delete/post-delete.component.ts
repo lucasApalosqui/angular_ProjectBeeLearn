@@ -13,7 +13,7 @@ export class PostDeleteComponent implements OnInit {
 
   
   postagem: PostagemModel = new PostagemModel()
-  idPost: number
+  idPostagem: number
 
   constructor(
     private postagemService: PostagemService,
@@ -29,11 +29,11 @@ export class PostDeleteComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-    this.idPost = this.route.snapshot.params['id']
-    this.findByIdPostagem(this.idPost)
+    this.idPostagem = this.route.snapshot.params['id']
+    this.getByIdPostagem(this.idPostagem)
   }
 
-  findByIdPostagem(id: number) {
+  getByIdPostagem(id: number) {
     this.postagemService.getByIdPostagem(id).subscribe((resp: PostagemModel) => {
       this.postagem = resp
     })
@@ -41,7 +41,7 @@ export class PostDeleteComponent implements OnInit {
 
 
   apagar(){
-    this.postagemService.deletePostagem(this.idPost).subscribe(()=> {
+    this.postagemService.deletePostagem(this.idPostagem).subscribe(()=> {
       alert ('Postagem apagada com sucesso!')
       this.router.navigate(['/inicio'])
     })

@@ -34,9 +34,12 @@ export class PostEditComponent implements OnInit {
    }
 
    let id = this.route.snapshot.params['id']
-   this.findByIdPostagem(id)
+   this.getByIdPostagem(id)
    this.findAllGrupo()
  }
+  getByIdPostagem(id: any) {
+    throw new Error('Method not implemented.');
+  }
 
  findByIdPostagem(id: number) {
    this.postagemService.getByIdPostagem(id).subscribe((resp: PostagemModel) => {

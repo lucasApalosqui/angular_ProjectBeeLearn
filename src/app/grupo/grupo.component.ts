@@ -44,10 +44,15 @@ listaPostagens: PostagemModel[]
       this.router.navigate(['/entrar'])
     }
   
-
+    this.getAllgrupo()
     this.getAllPostagens()
   }
 
+  getAllgrupo(){
+    this.grupoModelService.getAllGrupo().subscribe((resp:GrupoModel[])=>{
+      this.listaGrupo = resp
+    })
+  }
 
   findByIdGrupo() {
     this.grupoModelService.getByIdGrupo(this.idGrupo).subscribe((resp: GrupoModel) =>{
