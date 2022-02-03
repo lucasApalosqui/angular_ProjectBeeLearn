@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { subscribeOn } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { GrupoModel } from '../model/GrupoModel';
 import { AuthService } from '../service/auth.service';
@@ -21,7 +22,6 @@ export class HomeComponent implements OnInit {
   tipo = environment.tipo
   foto =environment.foto
   idUsuario= environment.idUsuario
-
 
   constructor(
     private auth: AuthService,
@@ -47,14 +47,11 @@ export class HomeComponent implements OnInit {
 
   cadastrar(){
     this.grupoModelService.postGrupo(this.grupo).subscribe((resp:GrupoModel)=>{
-    this.grupo = resp 
+    this.grupo = resp
     alert('Grupo cadastrado com sucesso!')
     this.findAllGrupo()
-    this.grupo=new GrupoModel()
+    this.grupo = new GrupoModel()
     this.router.navigate(['/grupo'])
-
-
     })
-  }
-
+  } 
 }
