@@ -10,6 +10,9 @@ export const environment = {
 	 tipo: '',
 	 nomeGrupo:'',
 	 descricao: '',
-	 urlImagem: ''
-
+	 urlImagem: '',
+	 idPostagem: 0,
+	 titulo:'',
+	 postagem: '',
+	 data: 0,
 };

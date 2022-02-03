@@ -12,9 +12,9 @@ export class GrupoModelService {
 
   constructor(private http: HttpClient){ }
 
-token = {
-  headers:new HttpHeaders().set('Authorization',environment.token)
-}
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
 
 getAllGrupo():Observable<GrupoModel[]>{
   return this.http.get<GrupoModel[]>('http://localhost:8080/grup',this.token)
