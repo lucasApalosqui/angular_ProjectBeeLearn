@@ -18,6 +18,8 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { GrupoEditComponent } from './edit/grupo-edit/grupo-edit.component';
 import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.component';
+import { PostEditComponent } from './edit/post-edit/post-edit.component';
+import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 
 
 
@@ -36,7 +38,9 @@ import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.compone
     GrupoComponent,
     InicioComponent,
     GrupoEditComponent,
-    GrupoDeleteComponent
+    GrupoDeleteComponent,
+    PostEditComponent,
+    PostDeleteComponent
 
   ],
   

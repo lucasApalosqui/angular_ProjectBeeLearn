@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { GrupoModel } from '../model/GrupoModel';
 import { PostagemModel } from '../model/PostagemModel';
 import { UserModel } from '../model/UserModel';
+import { AuthService } from '../service/auth.service';
 import { GrupoModelService } from '../service/grupo.service';
 import { PostagemService } from '../service/postagem.service';
 
@@ -23,11 +24,13 @@ postagem: PostagemModel = new PostagemModel()
 usuario: UserModel = new UserModel()
 idUsuario = environment.idUsuario
 listaPostagens: PostagemModel[]
+ 
 
   constructor(
     private router:Router,
     private grupoModelService: GrupoModelService,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private authService: AuthService
       
     
   ) { }
@@ -68,6 +71,12 @@ listaPostagens: PostagemModel[]
       this.getAllPostagens()
 
     })
+    }
+
+    findByIdUser() {
+      this.authService.getByIdUser(this.idUsuario).subscribe((resp: UserModel) => {
+        this.usuario = resp
+      })
     }
 
   }

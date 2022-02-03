@@ -32,4 +32,8 @@ export class AuthService {
   
   }
 
+  getByIdUser(id: number): Observable<UserModel> {
+    return this.http.get<UserModel>(`http://localhost:8080/api/v1/user/${id}`)
+  }
+
 }

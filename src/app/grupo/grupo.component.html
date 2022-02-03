@@ -17,7 +17,7 @@
                 <div class="border navl">
                     <ul class="nav flex-column d-flex justify-content-center align-items-center">
                         <li class="nav-item">
-                            <button class="btn btn-dark"  style="width: 100%;"
+                            <button (click)='findByIdUser()' class="btn btn-dark"  style="width: 100%;"
                                 >Postagens</button>
                         </li>
                         <li class="nav-item">
@@ -86,13 +86,13 @@
 
         </div>
         <div class="column">
-            <div class="col-md-6 post d-flex container mt-5 mb-5">
+            <div class="col-md-6 post d-flex container mt-5 mb-5" *ngFor='let item of usuario.postagem'>
                 <div class="post-square">
-                    <h2 class="pb-5">Titulo da postagem</h2>
-                    <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quasi eveniet voluptatem perferendis, saepe dicta nihil adipisci quisquam corporis alias officia aperiam molestias inventore laborum corrupti! Quisquam praesentium dolor quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium distinctio quia error, cumque nostrum non numquam voluptate dicta perferendis! Natus exercitationem officia quae ducimus, inventore hic dignissimos voluptas voluptatum tempore?</p>
+                    <h2 class="pb-5">{{item.titulo}}</h2>
+                    <p class="post-text">{{item.grupo.descricao}}</p>
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-light mr-5 but">Editar</button>
-                        <button class="btn btn-light ml-5 but">Deletar</button>
+                        <button class="btn btn-light mr-5 but" [routerLink]="['/post-edit', item.idPost]">Editar</button>
+                        <button class="btn btn-light ml-5 but" [routerLink]="['/post-delete', item.idPost]">Deletar</button>
                     </div>
                
                 </div>
@@ -136,17 +136,25 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
+                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo" placeholder="Digite o título">
                 </div>
                 <div class="form-group">
                     <label for="titulo">Descrição</label>
-                    <textarea name="texto" id="texto" rows="3" class="form-control"
+                    <textarea [(ngModel)]='postagem.post' name="texto" id="post" rows="3" class="form-control"
                         placeholder="Digite a descrição"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tema">Escolha de qual grupo a postagem se refere: </label>
+                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idGrupo' (change)='findByIdGrupo()'>
+                        <option *ngFor='let item of listaGrupo' value="{{item.idGrupo}}">
+                          {{item.descricao}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-dark">Confirmar</button>
+                <button type="button" class="btn btn-dark" (click)='publicar()' data-bs-dismiss="modal">Confirmar</button>
             </div>
         </div>
     </div>
