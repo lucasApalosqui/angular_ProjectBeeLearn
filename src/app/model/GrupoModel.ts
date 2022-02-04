@@ -9,6 +9,6 @@ export class GrupoModel{
 	public nomeGrupo: string
 	public descricao: string
 	public urlImagem: string
-    public user: UserModel[]
+    public user: UserModel
     public postagem: PostagemModel[]
 }

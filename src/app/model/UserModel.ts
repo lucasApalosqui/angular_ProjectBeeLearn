@@ -1,3 +1,4 @@
+import { GrupoModel } from "./GrupoModel"
 import { PostagemModel } from "./PostagemModel"
 
 export class UserModel{
@@ -14,4 +15,5 @@ export class UserModel{
 	public foto: string
 	public tipo: string
     public postagem: PostagemModel []
+	public grupo: GrupoModel []
 }

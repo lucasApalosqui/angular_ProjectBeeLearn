@@ -25,10 +25,10 @@ export class GrupoEditComponent implements OnInit {
     }
 
     let idGrupo = this.route.snapshot.params['id']
-    this.findByIdTema(idGrupo)
+    this.findByIdGrupo(idGrupo)
   }
 
-  findByIdTema(id: number) {
+  findByIdGrupo(id: number) {
     this.grupoService.getByIdGrupo(id).subscribe ((resp: GrupoModel) => {
       this.grupo = resp
     })

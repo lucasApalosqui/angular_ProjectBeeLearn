@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { subscribeOn } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { GrupoModel } from '../model/GrupoModel';
+import { PostagemModel } from '../model/PostagemModel';
+import { UserModel } from '../model/UserModel';
 import { AuthService } from '../service/auth.service';
 import { GrupoModelService } from '../service/grupo.service';
 
@@ -14,6 +15,8 @@ import { GrupoModelService } from '../service/grupo.service';
 })
 export class HomeComponent implements OnInit {
 
+  postagem : PostagemModel = new PostagemModel()
+  userModel: UserModel = new UserModel()
   grupo: GrupoModel = new GrupoModel()
   listaGrupo: GrupoModel[]  
   nomeUsuario = environment.nomeUsuario
@@ -21,12 +24,17 @@ export class HomeComponent implements OnInit {
   bio = environment.bio
   tipo = environment.tipo
   foto =environment.foto
-  idUsuario= environment.idUsuario
+  idUser= environment.idUsuario
+  GrupoId: number
+
+
 
   constructor(
     private auth: AuthService,
     private router:Router,
-    private grupoModelService: GrupoModelService
+    private grupoModelService: GrupoModelService,
+    private route : ActivatedRoute
+
   ) { }
 
 
@@ -34,8 +42,11 @@ export class HomeComponent implements OnInit {
     if(environment.token==''){
       this.router.navigate(['/entrar']) 
     }
-  
+    let idGrupo = this.route.snapshot.params['idGrupo']
+    this.findByIdGrupo(idGrupo)
+
     this.findAllGrupo()
+    this.getAllGrupo()
   }
 
   findAllGrupo(){
@@ -45,13 +56,33 @@ export class HomeComponent implements OnInit {
 
   }
 
+  
+  findByIdGrupo(idGrupo: number) {
+    this.grupoModelService.getByIdGrupo(idGrupo).subscribe ((resp: GrupoModel) => {
+      this.grupo = resp
+    })
+  }
+
+
+  getAllGrupo(){
+    this.grupoModelService.getAllGrupo().subscribe((resp:GrupoModel[])=>{
+      this.listaGrupo = resp
+    })
+  }
+
+
   cadastrar(){
+    this.grupo.idGrupo = this.GrupoId
+
+    this.userModel.idUsuario = this.idUser
+    this.grupo.user = this.userModel
+
     this.grupoModelService.postGrupo(this.grupo).subscribe((resp:GrupoModel)=>{
     this.grupo = resp
     alert('Grupo cadastrado com sucesso!')
     this.findAllGrupo()
-    this.grupo = new GrupoModel()
-    this.router.navigate(['/grupo'])
+    this.grupo=new GrupoModel()
     })
-  } 
+  }
+
 }

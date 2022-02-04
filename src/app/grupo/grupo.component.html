@@ -121,7 +121,7 @@
 </div>
 
  
-  <!-- Modal -->
+  <!-- Modal Postagem-->
   <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" id="hexagono">
@@ -143,9 +143,9 @@
                 </div>
                 <div class="form-group">
                     <label for="tema">Escolha de qual grupo a postagem se refere: </label>
-                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idGrupo' (change)='findByIdGrupo()'>
+                    <select name="tema" id="tema" class="form-control" (change)='findByIdGrupoNovo()'>
                         <option *ngFor='let item of listaGrupo' value="{{item.idGrupo}}">
-                          {{item.nomeGrupo}}
+                          {{item.idGrupo}}
                         </option>
                     </select>
                 </div>
