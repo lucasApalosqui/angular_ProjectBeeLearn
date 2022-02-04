@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common'
 
-import { ComponentMenuRodapeComponent } from './component-menu-rodape/component-menu-rodape.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { SobreComponent } from './sobre/sobre.component';
@@ -30,7 +29,6 @@ import { PostDeleteComponent } from './delete/post-delete/post-delete.component'
     AppComponent,
     EntrarComponent,
     CadastrarComponent,
-    ComponentMenuRodapeComponent,
     MenuComponent,
     RodapeComponent,
     SobreComponent,
