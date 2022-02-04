@@ -80,16 +80,11 @@
                                 <article>
                                     <table>
                                         <tbody>
-                                            <tr *ngFor = 'let item of listaGrupo'>
-                                    <div class="lab_item">		
-                                    <div class="hexagon hexagon2">
-                                        <div class="hexagon-in1">
-                                            <td><div class="hexagon-in2" style="background-image: url({{item.urlImagem}});">                
-                                            </div></td>
-                                         </div>
-                                     </div>
-                                     </div>
-                                    </tr>
+                                        <div *ngFor='let grupo of listaGrupo'>
+                                            <img src="{{grupo.urlImagem}}" alt="" style="width: 50px; height: 50px;">
+                                            <p>{{grupo.nomeGrupo}}</p>
+                                            <p>{{grupo.descricao}}</p>
+                                        </div>
                                     </tbody>
                                     </table>
                                                                           
