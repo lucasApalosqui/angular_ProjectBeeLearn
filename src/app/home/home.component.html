@@ -1,35 +1,37 @@
-<div class=" container-fluid bg-preto" >
+<div class=" container-fluid bg-preto">
     <div class="row justify-content-center">
         <div class="container">
-        
-            <div class="row card  d-flex align-items-center flex-row justify-content-center mt-5 p-3 ml-5 bg-amarelo-card" style="max-width: 1000px;">
-        
+
+            <div class="row card  d-flex align-items-center flex-row justify-content-center mt-5 p-3 ml-5 bg-amarelo-card"
+                style="max-width: 1000px;">
+
                 <div class="col-4">
-                
-                <div class="row d-flex justify-content-center mr-4 mb-lg-0">
+
+                    <div class="row d-flex justify-content-center mr-4 mb-lg-0">
                         <img src="{{foto}}" width="200px" height="200px" alt="" class="rounded-circle">
+                    </div>
                 </div>
-                </div>
-              
+
                 <div class="col-4">
 
                     <h3>Bem vinde, {{nomeUsuario}}!</h3>
                     <h6>{{email}}</h6>
                     <h6>{{tipo}}</h6>
-                       
-                            <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#criargrupo">Criar Grupo</button>
+
+                    <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#criargrupo">Criar Grupo</button>
 
 
                 </div>
-        
+
                 <div class="col-4 card">
                     <div class="p-1">
                         <h6 class="text-justify" placeholder='Conte sobre voce'>bio</h6>
 
                     </div>
-                  
-        
+
+
                 </div>
+<<<<<<< HEAD
         
                
         </div>
@@ -66,27 +68,144 @@
                 </button>
             </div>
             <div class="modal-body">
+=======
 
-                <div class="form-group">
-                    <label for="nomeGrupo">Título</label>
-                    <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control" id="titulo" placeholder="Digite o título">
-                </div>
-                
-                <div class="form-group">
-                    <label for="descricao">Descrição</label>
-                    <textarea [(ngModel)]='grupo.descricao'name="texto" id="texto" rows="3" class="form-control"
-                        placeholder="Digite a descrição"></textarea>
-                </div>
 
-                <div class="form-group">
-                    <label for="foto">Foto de capa</label>
-                    <input [(ngModel)]='grupo.urlImagem' type="text" class="form-control" id="foto" placeholder="Insira um link">
-                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-dark" (click) = 'cadastrar()'>Confirmar</button>
+
+
+
+            <div class="container">
+                <div class="row  d-flex justify-content-center  mt-3">
+
+                    <nav>
+                        <div class="nav nav-tabs " style="max-width: 1000px;" id="nav-tab" role="tablist">
+
+
+                            <a class="nav-item nav-link active text-secondary font-weight-bold " id="nav-home-tab"
+                                data-toggle="tab" href="#nav-todas" role="tab" aria-controls="nav-home"
+                                aria-selected="true">Grupos Criados</a>
+                            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-profile-tab"
+                                data-toggle="tab" href="#nav-minhas" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Meus Grupos</a>
+                            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-contact-tab"
+                                data-toggle="tab" href="#nav-tema" role="tab" aria-controls="nav-contact"
+                                aria-selected="false">Explore</a>
+
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-todas" role="tabpanel"
+                            aria-labelledby="nav-home-tab"></div>
+                        <div class="tab-pane fade" id="nav-minhas" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        </div>
+                        <div class="tab-pane fade" id="nav-todas" role="tabpanel" aria-labelledby="nav-todas-tab">
+                            <div class="modal-body">
+                                <div class="card-columns">
+                                    <div class="card text-center" *ngFor='let item of listaGrupo'>
+                                        <div class="card-body">
+                                            <h5 class="card-title m-0">{{item.nomeGrupo}}</h5>
+                                            <small class="text-muted"> Descrição do Grupo: {{item.descricao}}</small>
+                                            <a [routerLink]="['/grupo-edit', item.idGrupo]" class="text-info mr-3"
+                                                href="">Editar</a>
+                                            <a [routerLink]="['/grupo-delete', item.idGrupo]" class="text-danger"
+                                                href="">Apagar</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+
+                        <div class="row d-flex justify-content-center mt-1">
+
+                            <section id="lab">
+                                <div class="sectionheader"> </div>
+                                <article>
+                                    <table>
+                                        <tbody>
+                                            <tr *ngFor='let item of listaGrupo'>
+                                                <div class="lab_item">
+                                                    <div class="hexagon hexagon2">
+                                                        <div class="hexagon-in1">
+                                                            <td>
+                                                                <div class="hexagon-in2"
+                                                                    style="background-image: url({{item.urlImagem}});">
+                                                                </div>
+                                                            </td>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+                                </article>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="form-group">
+
+>>>>>>> 973d5c10fc532300db85c8400a84d0eaccbec9d5
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="criargrupo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" id="hexagono">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Novo Grupo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="nomeGrupo">Título</label>
+                            <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control" id="titulo"
+                                placeholder="Digite o título">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea [(ngModel)]='grupo.descricao' name="texto" id="texto" rows="3"
+                                class="form-control" placeholder="Digite a descrição"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="foto">Foto de capa</label>
+                            <input [(ngModel)]='grupo.urlImagem' type="text" class="form-control" id="foto"
+                                placeholder="Insira um link">
+                        </div>
+                                            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-dark" (click)='cadastrar()'>Confirmar</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>

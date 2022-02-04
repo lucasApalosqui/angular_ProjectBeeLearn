@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
   idUser= environment.idUsuario
   GrupoId: number
 
+
+
   constructor(
     private auth: AuthService,
     private router:Router,
@@ -76,12 +78,11 @@ export class HomeComponent implements OnInit {
     this.grupo.user = this.userModel
 
     this.grupoModelService.postGrupo(this.grupo).subscribe((resp:GrupoModel)=>{
-    this.grupo = resp 
+    this.grupo = resp
     alert('Grupo cadastrado com sucesso!')
     this.findAllGrupo()
     this.grupo=new GrupoModel()
     })
   }
-
 
 }
