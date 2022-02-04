@@ -74,7 +74,7 @@ button:focus {
 
 .ghost-round:hover {
   background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: rgb(43, 22, 22);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
@@ -95,9 +95,7 @@ button:focus {
   transition: all .2s ease;
 }
 
-.full-width {
-  width: 100%;
-}
+
 
 .input-fields {
   margin-top: 25px;
@@ -179,8 +177,8 @@ button:focus {
 }
 
 .overlay {
-  background: -webkit-linear-gradient(#000000a4, #dbd175);
-  background: linear-gradient(#dbd175,#000000a4);
+  background: -webkit-linear-gradient(#721c02a4, #645d1d);
+  background: linear-gradient(#ce6808,#c9970fa4);
   opacity: 0.85;
   filter: alpha(opacity=85);
   height: 560px;
@@ -196,10 +194,10 @@ button:focus {
   bottom: 0px;
   margin: auto;
   width: 100%;
-  height: 900px;
+  height: 100%;
   z-index: 1;
   opacity:1;
-    background: url('https://1.bp.blogspot.com/-7Cks4TEN-jc/WynthoJKUnI/AAAAAAAALqE/WnqT5PSi3CwduJUwp4muZl2mdjBD1DKZACLcBGAs/s2560/material-design-2560x1440-stock-yellow-shapes-material-hd-14202.jpg') left no-repeat;
+    background: url('https://i.imgur.com/zbkcI6N.png') left no-repeat;
   background-size:cover;
 }
 
@@ -212,4 +210,35 @@ button:focus {
     width: 100%;
     height: 100%;
   }
+}
+
+.ghost-round {
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(19, 18, 18, 0.65);
+  border-radius: 25px;
+  color: rgba(5, 5, 5, 0.829);
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  font-size: 19px;
+  font-size: 1.2rem;
+  font-family: roboto;
+  font-weight: 300;
+  line-height: 2.5em;
+  margin-top: auto;
+  margin-bottom: 25px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.ghost-round:hover {
+  background: rgba(41, 8, 8, 0.15);
+  color: rgb(15, 5, 5);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.full-width {
+  width: 100%;
 }

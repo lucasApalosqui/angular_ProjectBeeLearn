@@ -1,6 +1,6 @@
 
 .fundo {
-    background:#e7c012;
+    background:#f7f6f4;
     top: 0px;
     bottom: 0px;
     margin: auto;
@@ -19,13 +19,13 @@
 
 .bg-preto{
 
-  background:  #303841  ;
+  background:  #8f8e8d  ;
 
 }
 
 .bg-cinza{
 
-  background: #3A4750;
+  background: #3f4041;
 
 
 }
@@ -33,7 +33,7 @@
 
 .bg-amarelo{
 
-  background: #F6C90E ;
+  background: #f7f7f7 ;
 
 
 }
@@ -41,7 +41,7 @@
 
 .bg-amarelo-card{
 
-  background: #f6c80ec4 ;
+  background: #f5f4f3c4 ;
 
 
 }

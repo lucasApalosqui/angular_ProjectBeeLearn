@@ -1,25 +1,29 @@
 <div class='bold-line'></div>
-<div class='container'>
+<div class="row d-flex justify-content-end m-5">
+  <div class="col-md-6">
   <div class='window'>
     <div class='overlay'></div>
     <div class='content'>
-      <div class='welcome'>Ola!</div>
-      <div class='subtitle'>Estamos quase terminando. Antes de entrar para BeeLearn, você precisa criar uma conta.</div>
+      <div class='welcome'>Olá!</div>
+      <div class='subtitle'>Estamos quase lá.
+        Antes de entrar para BeeLearn, você precisa criar uma conta.</div>
       <div class='input-fields'>
-        <input [(ngModel)]='user.nomeUsuario' type='text' placeholder='Nome' class ='input-line full-width'>
-        <input [(ngModel)]='user.email' type='text' placeholder='Email' class='input-line full-width'>
+        <input [(ngModel)]='user.nomeUsuario' type='text' placeholder='Nome Sobrenome' class ='input-line full-width'>
+        <input [(ngModel)]='user.email' type='text' placeholder='exemple@email.com' class='input-line full-width'>
         <input [(ngModel)]='user.foto' type='text' placeholder='Link da Foto' class='input-line full-width'>
         <input (input) = 'confirmSenha ($event)' type='password' placeholder='Senha' class='input-line full-width'>
       </div>
         <input [(ngModel)]='user.senha' type='password' placeholder='Confirme sua senha' class='input-line full-width'>
       </div>
       
- <div class='spacing'>ou continuar com <span class='highlight'>Facebook</span>
+      <div class='spacing'>_______________<span class='highlight'>_________</span>
  
-      <div><button  class='ghost-round full-width' (click)='cadastrar()'>Criar conta!</button></div>
-      <p class="text-center"> <a routerLink='/entrar'> Logar </a></p>
- 
-  </div>
-  </div>
+        <div><button  class='ghost-round full-width' (click)='cadastrar()'>Criar conta!</button></div>
+        <p class="text-center text-warning"> Já possui uma conta? Click em <a routerLink='/entrar' class="text-secondary"> Login </a></p>
+   
+    </div>
+    </div>
+    
+
 
 </div>

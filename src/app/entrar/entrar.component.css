@@ -14,11 +14,11 @@ button:focus {
 }
 
 ::-webkit-input-placeholder {
-  color: rgb(250, 249, 249);
+  color: rgb(240, 238, 238);
 }
 
 ::-webkit-input-placeholder .input-line:focus +::input-placeholder {
-  color: #fff;
+  color: rgb(247, 241, 241);
 }
 
 .highlight {
@@ -47,7 +47,7 @@ button:focus {
 
 .input-line:focus {
   outline: none;
-  border-color: #fff;
+  border-color: rgb(224, 211, 211);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
@@ -55,9 +55,9 @@ button:focus {
 .ghost-round {
   cursor: pointer;
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(241, 237, 237, 0.65);
   border-radius: 25px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(245, 239, 239, 0.65);
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
@@ -73,8 +73,8 @@ button:focus {
 }
 
 .ghost-round:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(41, 8, 8, 0.15);
+  color: rgb(15, 5, 5);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
@@ -83,14 +83,14 @@ button:focus {
   background: none;
   margin-bottom: 10px;
   line-height: 2.4em;
-  color: #fff;
+  color: rgb(245, 244, 244);
   font-family: roboto;
   font-weight: 300;
   letter-spacing: 0px;
   letter-spacing: 0.02rem;
   font-size: 19px;
   font-size: 1.2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  border-bottom: 1px solid rgba(235, 229, 229, 0.65);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
@@ -117,7 +117,7 @@ button:focus {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: #eee;
+  background: rgb(248, 235, 235);
   height: 100%;
 }
 
@@ -154,14 +154,14 @@ button:focus {
 }
 
 .menu {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(17, 1, 1, 0);
   width: 100%;
   height: 50px;
 }
 
 .window {
   z-index: 100;
-  color: rgb(247, 233, 233);
+  color: rgb(253, 250, 247);
   font-family: roboto;
   position: relative;
   display: -webkit-box;
@@ -171,17 +171,17 @@ button:focus {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
-  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 15px 50px 10px rgba(112, 33, 9, 0.2);
   box-sizing: border-box;
   height: 560px;
   width: 360px;
-  background: rgb(255, 255, 255);
+  background: rgb(248, 246, 241);
   background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
 }
 
 .overlay {
-  background: -webkit-linear-gradient(#000000a4, #dbd175);
-  background: linear-gradient(#dbd175,#000000a4);
+  background: -webkit-linear-gradient(#721c02a4, #645d1d);
+  background: linear-gradient(#ce6808,#c9970fa4);
   opacity: 0.85;
   filter: alpha(opacity=85);
   height: 560px;
@@ -197,10 +197,10 @@ button:focus {
   bottom: 0px;
   margin: auto;
   width: 100%;
-  height: 900px;
+  height: 100%;
   z-index: 1;
   opacity:1;
-    background: url('https://1.bp.blogspot.com/-7Cks4TEN-jc/WynthoJKUnI/AAAAAAAALqE/WnqT5PSi3CwduJUwp4muZl2mdjBD1DKZACLcBGAs/s2560/material-design-2560x1440-stock-yellow-shapes-material-hd-14202.jpg') left no-repeat;
+    background: url('https://i.imgur.com/zbkcI6N.png') left no-repeat;
   background-size:cover;
 }
 
