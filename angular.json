@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "5ac65ab2-1fb9-4953-b51f-724b97d5fcf5"
+    "analytics": "0021d8ff-adbe-47d4-a127-585b65c1a89d"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "beeLearn": {
+    "projectBeeLearn": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bee-learn",
+            "outputPath": "dist/project-bee-learn",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "beeLearn:build:production"
+              "browserTarget": "projectBeeLearn:build:production"
             },
             "development": {
-              "browserTarget": "beeLearn:build:development"
+              "browserTarget": "projectBeeLearn:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "beeLearn:build"
+            "browserTarget": "projectBeeLearn:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "beeLearn"
+  "defaultProject": "projectBeeLearn"
 }
