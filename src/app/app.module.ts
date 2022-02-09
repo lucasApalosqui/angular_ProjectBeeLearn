@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,9 @@ import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.compone
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -35,11 +39,12 @@ import { EntrarComponent } from './entrar/entrar.component';
     GrupoDeleteComponent,
     PostDeleteComponent,
     CadastroComponent,
-    EntrarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
