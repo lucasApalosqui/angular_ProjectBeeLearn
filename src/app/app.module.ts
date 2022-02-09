@@ -20,6 +20,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { FormsModule } from '@angular/forms';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,6 @@ import { FormsModule } from '@angular/forms';
     GrupoDeleteComponent,
     PostDeleteComponent,
     CadastroComponent,
-    EntrarComponent,
   ],
   imports: [
     BrowserModule,
