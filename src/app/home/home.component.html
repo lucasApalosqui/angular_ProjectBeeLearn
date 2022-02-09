@@ -12,7 +12,7 @@
     <div>
         <!--Imagem de perfil-->
         <img id="img-perfil" width="250px" height="250px"
-            src="https://upload.wikimedia.org/wikipedia/commons/4/43/Foto_Perfil.jpg"
+            src={{user.foto}}
             class="rounded-circle img-thumbnail">
 
         <!--Botões-->
@@ -28,9 +28,8 @@
         <div class="col-md-4">
             <!--Informações perfil-->
             <ul class="list-group list-group-flush text-center border-end">
-                <li class="list-group-item fs-1">João Pereira</li>
-                <li class="list-group-item">Quando chover, busque pelo arco-íris. Quando escurecer, busque pelas
-                    estrelas.⭐⭐</li>
+                <li class="list-group-item fs-1">{{user.nome}}</li>
+                <li class="list-group-item">{{user.bio}}</li>
             </ul>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-outline-primary mt-2"  data-bs-toggle="modal" data-bs-target="#updateUser">Editar perfil</button>
@@ -117,21 +116,21 @@
                
                 <div class="row container">
                     <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo">
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo" [(ngModel)]="user.nome">
                         <label for="nome"> Nome</label>
                       </div>
                       <div class="form-floating mb-3 col-md-6">
-                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo">
+                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo" [(ngModel)]="user.email">
                         <label for="email">Email</label>
                       </div>
 
                       <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem">
+                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem" [(ngModel)]="user.foto">
                         <label for="foto">Url da foto</label>
                       </div>
-                      <div class="col-md-6 form-floating">
+                      <div class="mb-1 col-md-6">
                         <label for="tipo"></label>
-                        <select name="tipo" id="tipo" class="form-control">
+                        <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
                             <option>Selecione um tipo de usuário:</option>
                             <option value="aluno">Aluno</option>
                             <option value="instrutor">Instrutor</option>
@@ -139,15 +138,15 @@
                       </div>
 
                           <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem">
+                            <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem" (input)='confirmSenha($event)'>
                             <label for="senha">Senha</label>
                           </div>
                           <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="confSenha" placeholder="Coloque a url de imagem">
+                            <input type="password" class="form-control" id="confSenha" placeholder="Coloque a url de imagem" [(ngModel)]='user.senha'>
                             <label for="confSenha">Confirme a senha</label>
                           </div>
                           <div class="col-md-12 form-floating">
-                            <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem">
+                            <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem" [(ngModel)]="user.bio">
                             <label for="Bio">Bio</label>
                           </div>
                 </div>
@@ -157,7 +156,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Atualizar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="atualizar()">Atualizar</button>
             </div>
         </div>
     </div>
