@@ -27,6 +27,11 @@ export class GrupoService {
     return this.http.get<Grupo>(`http://localhost:8080/grupo/${idGrupo}`, this.token)
   }
 
+  postgrupo(grupo: Grupo): Observable<Grupo>{
+    return this.http.post<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+  }
+
+
   putGrupo(grupo: Grupo): Observable<Grupo>{
     return this.http.put<Grupo>('http://localhost:8080/grupo', grupo, this.token)
   }

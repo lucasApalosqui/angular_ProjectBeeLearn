@@ -135,7 +135,7 @@ getAllGrupo(){
     })
   }
 
-  
+   
 
   getAllPostagem(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
@@ -165,7 +165,6 @@ getAllGrupo(){
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-     
     })
   }
  

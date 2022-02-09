@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
+import { Usuario } from '../model/Usuario';
 import { GrupoService } from '../service/grupo.service';
 
 @Component({
@@ -10,6 +11,12 @@ import { GrupoService } from '../service/grupo.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user: Usuario = new Usuario
+  nome = environment.nome
+  foto = environment.foto
+  idUser = environment.idUser
+  tipUser: string
+  confiSenha: string
 
   grupo: Grupo = new Grupo()
   listaGrupo: Grupo[]
