@@ -46,7 +46,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HttpClientModule,
     FormsModule
   ],
-  providers: [
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
   ],
   bootstrap: [AppComponent]
 })
