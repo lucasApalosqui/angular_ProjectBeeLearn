@@ -50,7 +50,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FormsModule
 
   ],
-  providers: [
+
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
 
   ],
   bootstrap: [AppComponent]

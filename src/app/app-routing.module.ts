@@ -4,6 +4,7 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HomeComponent } from './home/home.component';
+
 import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path:'grupo', component: GrupoComponent},
   
+
 
 ];
 
