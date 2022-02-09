@@ -29,12 +29,13 @@ export class EntrarComponent implements OnInit {
     this.auth.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
       this.userLogin = resp
   
-      environment.idUser = this.userLogin.idUser
+      
       environment.email = this.userLogin.email
       environment.nome = this.userLogin.nome
       environment.tipo = this.userLogin.tipo
       environment.token = this.userLogin.token
       environment.foto  = this.userLogin.foto
+      environment.idUser = this.userLogin.id
   
       console.log(environment.bio)
       console.log(environment.email)
