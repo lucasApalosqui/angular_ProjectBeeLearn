@@ -13,13 +13,16 @@ export class EntrarComponent implements OnInit {
 
   userLogin: UserLogin = new UserLogin()
 
+
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
+
   ngOnInit(){
   }
+
 
 
   logar() {
@@ -48,5 +51,6 @@ export class EntrarComponent implements OnInit {
         alert('Usúario ou senha incorretos!')
       }
   })
+
   }
 }

@@ -11,7 +11,8 @@ import { Usuario } from '../model/Usuario';
 export class AuthService {
 
   constructor(
-    private http : HttpClient
+
+    private http: HttpClient
   ) { }
 
   getByIdUser(idUser: number): Observable<Usuario>{
@@ -37,5 +38,6 @@ export class AuthService {
 
     return ok
   }
+
 
 }
