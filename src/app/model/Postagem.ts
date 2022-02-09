@@ -10,3 +10,6 @@ public data: Date
 public materia: string
 public usuario: Usuario
 public grupo: Grupo
+
+}
+

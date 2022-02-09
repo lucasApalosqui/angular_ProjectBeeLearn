@@ -12,3 +12,4 @@ public tipo: string
 public postagem: Postagem[]
 
 }
+

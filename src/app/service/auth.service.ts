@@ -10,8 +10,13 @@ import { Usuario } from '../model/Usuario';
 export class AuthService {
 
   constructor(
+
     private http: HttpClient
   ) { }
+
+  getByIdUser(idUser: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${idUser}`)
+  }
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
     return this.http.post<UserLogin>('http://localhost:8080/usuarios/logar', userLogin)

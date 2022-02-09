@@ -1,5 +1,6 @@
 import { Postagem } from "./Postagem"
 
+
 export class Grupo {
 
 public idGrupo: number

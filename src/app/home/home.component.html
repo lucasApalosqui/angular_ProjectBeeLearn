@@ -1,1 +1,106 @@
-<p>home works!</p>
+<!-- Container principal -->
+<div id="main-container" class="container">
+    <div class="row">
+        <!--Imagem de capa-->
+        <div class="col">
+            <img class="card-img-bottom"
+                src="http://25.media.tumblr.com/0b1588cd05222561206759a8476d8df3/tumblr_mna0n5UfDw1rc4kb8o7_1280.jpg"
+                height="400px">
+        </div>
+    </div>
+
+    <div>
+        <!--Imagem de perfil-->
+        <img id="img-perfil" width="250px" height="250px"
+            src="https://upload.wikimedia.org/wikipedia/commons/4/43/Foto_Perfil.jpg"
+            class="rounded-circle img-thumbnail">
+
+        <!--Botões-->
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#cadastroGroup">Criar grupo</button>
+            <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal"
+                data-bs-target="#listGroup">Listar grupos</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <!--Informações perfil-->
+            <ul class="list-group list-group-flush text-center border-end">
+                <li class="list-group-item fs-1">João Pereira</li>
+                <li class="list-group-item">Quando chover, busque pelo arco-íris. Quando escurecer, busque pelas
+                    estrelas.⭐⭐</li>
+            </ul>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-primary mt-2">Editar perfil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal de lista grupos-->
+<div class="modal fade" id="listGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Lista de grupos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!--Tabela de grupos-->
+                <table class="table table-borderless">
+                    <thead id="color-thead">
+                        <tr>
+                            <th scope="col">Nome do grupo</th>
+                            <th scope="col" class="d-flex justify-content-end">Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Grupo de geografia</td>
+                            <td class="d-flex justify-content-end"><button class="btn btn-success">Entrar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal de criação de grupos-->
+<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastro de grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Digite o nome do grupo">
+                    <label for="floatingInput">Nome</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Digite a descrição do grupo">
+                    <label for="floatingPassword">Descrição</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Coloque a url de imagem">
+                    <label for="floatingPassword">Url de imagem</label>
+                  </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
