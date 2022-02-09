@@ -1,0 +1,14 @@
+#main-container{
+    position:relative;
+    }
+
+    #img-perfil{
+    position: relative;
+    margin-top: -120px;
+    margin-left: 80px;
+    }
+
+    #color-thead{
+    background-color: rgb(226, 226, 226);
+
+    }
