@@ -11,19 +11,20 @@ import { PostagemService } from '../service/postagem.service';
 @Component({
   selector: 'app-grupo',
   templateUrl: './grupo.component.html',
-  styleUrls: ['./grupo.component.css']
+  styleUrls: ['./grupo.component.css'],
+ 
 })
 export class GrupoComponent implements OnInit {
   postagem: Postagem = new Postagem()
   grupo: Grupo = new Grupo()
-  usuario: Usuario = new Usuario
+  user: Usuario = new Usuario
 
   listaGrupo: Grupo[]
   listaPost: Postagem[]
 
-  idPost: number
-  idGrupo: number
-  idUser: number
+  PostId: number
+  GrupoId: number
+  UserId = environment.idUser
 
   constructor(
     private grupoService: GrupoService,
@@ -39,25 +40,31 @@ export class GrupoComponent implements OnInit {
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
-//GRUPO
-    this.idGrupo = this.route.snapshot.params ['idGrupo']
-    this.findAllGrupo()
-    this.findByIdGrupo(this.idGrupo)
+//GRUPO EDITAR
+    let idGrupo = this.route.snapshot.params ['idGrupo']
+    this.findByIdGrupo(idGrupo)
 
-//POSTAGEM
-    this.getAllGrupo()
-    this.getAllPostagem()
-    this.findByIdUser()
+//GRUPO DELETE//
+
+this.GrupoId = this.route.snapshot.params['idGrupo']
+//+this.findByIdGrupo(idGrupo)
+   
+
+//POSTAGEM EDITAR E DELETE//
+  let idPost = this.route.snapshot.params ['idPost']
+  this.findByIdPostagem(idPost)
+  this.findAllGrupo()
+
+//CRIAR POSTAGEM//
+  this.getAllGrupo()
+  this.getAllPostagem()
+
+  
+  this.findByIdUser()
   }
 
 
-//FUNÇÕES DE GRUPO//
-
-  findAllGrupo(){
-    this.grupoService.getAllGrupo().subscribe((resp: Grupo[]) => {
-      this.listaGrupo = resp
-    })
-  }
+//FUNÇÕES GRUPO //
 
   findByIdGrupo(idGrupo: number){
     this.grupoService.getByIdGrupo(idGrupo).subscribe((resp: Grupo) => {
@@ -74,14 +81,53 @@ export class GrupoComponent implements OnInit {
   }
 
   apagar(){
-    this.grupoService.deleteGrupo(this.idGrupo).subscribe(()=>{
+    this.grupoService.deleteGrupo(this.GrupoId).subscribe(()=>{
       alert('Grupo apagado com sucesso!')
       this.router.navigate(['/home'])
     })
   }
 
+  
+
 
   //FUNÇÕES DE POSTAGEM//
+
+  //EDITAR E DELETE//
+
+  findByIdPostagem(idPost: number){
+    this.postagemService.getByIdPost(idPost).subscribe((resp: Postagem) => {
+      this.postagem = resp
+    })
+  }
+
+  findByIdPostGrupo(){
+    this.grupoService.getByIdGrupo(this.GrupoId).subscribe((resp: Grupo) =>{
+      this.grupo = resp
+    })
+  }
+
+  findAllGrupo(){
+    this.grupoService.getAllGrupo().subscribe((resp: Grupo[]) => {
+      this.listaGrupo = resp
+    })
+  }
+
+  atualizarPost(){
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+      alert('Postagem atualizado com sucesso!')
+      this.router.navigate(['/grupo/:idGrupo'])
+    })
+  }
+
+  apagarPost(){
+    this.postagemService.deletePostagem(this.PostId).subscribe(()=>{
+      alert('Grupo apagado com sucesso!')
+      this.router.navigate(['/home'])
+    })
+  }
+
+  //
 
 getAllGrupo(){
     this.grupoService.getAllGrupo().subscribe((resp: Grupo[]) => {
@@ -89,6 +135,7 @@ getAllGrupo(){
     })
   }
 
+  
 
   getAllPostagem(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
@@ -96,26 +143,33 @@ getAllGrupo(){
     })
   }
 
+  
+
+  
+
   findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario) => {
-      this.usuario = resp
+    this.authService.getByIdUser(this.UserId).subscribe((resp: Usuario) => {
+      this.user = resp
     })
   }
 
+  
+
   publicar(){
-    this.grupo.idGrupo = this.idGrupo
+    this.grupo.idGrupo = this.GrupoId
     this.postagem.grupo = this.grupo
 
-    this.usuario.idUser= this.idUser
-    this.postagem.usuario = this.usuario
+    this.user.idUser = this.UserId
+    this.postagem.usuario = this.user
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem()
-      this.getAllPostagem()
+     
     })
   }
+ 
 
+ 
 
 }
