@@ -33,7 +33,7 @@
                     estrelas.⭐⭐</li>
             </ul>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-primary mt-2">Editar perfil</button>
+                <button type="button" class="btn btn-outline-primary mt-2"  data-bs-toggle="modal" data-bs-target="#updateUser">Editar perfil</button>
             </div>
         </div>
     </div>
@@ -100,6 +100,64 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal de atualização de usuarios-->
+<div class="modal fade" id="updateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title text-center" id="exampleModalLabel">Atualização de usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body container">
+               
+                <div class="row container">
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo">
+                        <label for="nome"> Nome</label>
+                      </div>
+                      <div class="form-floating mb-3 col-md-6">
+                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo">
+                        <label for="email">Email</label>
+                      </div>
+
+                      <div class="form-floating mb-3 col-md-6">
+                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem">
+                        <label for="foto">Url da foto</label>
+                      </div>
+                      <div class="col-md-6 form-floating">
+                        <label for="tipo"></label>
+                        <select name="tipo" id="tipo" class="form-control">
+                            <option>Selecione um tipo de usuário:</option>
+                            <option value="aluno">Aluno</option>
+                            <option value="instrutor">Instrutor</option>
+                        </select>
+                      </div>
+
+                          <div class="form-floating mb-3 col-md-6">
+                            <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem">
+                            <label for="senha">Senha</label>
+                          </div>
+                          <div class="form-floating mb-3 col-md-6">
+                            <input type="password" class="form-control" id="confSenha" placeholder="Coloque a url de imagem">
+                            <label for="confSenha">Confirme a senha</label>
+                          </div>
+                          <div class="col-md-12 form-floating">
+                            <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem">
+                            <label for="Bio">Bio</label>
+                          </div>
+                </div>
+               
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Atualizar</button>
             </div>
         </div>
     </div>
