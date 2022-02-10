@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
   confiSenha: string
 
 
-  constructor(
+  constructor(  
+    
     private authService: AuthService,
     private router: Router
   ) { }
