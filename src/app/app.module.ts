@@ -1,6 +1,6 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { GrupoComponent } from './grupo/grupo.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
-import { PerfilComponent } from './edit/perfil/perfil.component';
 import { PerfilEditComponent } from './edit/perfil-edit/perfil-edit.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { GrupoEditComponent } from './edit/grupo-edit/grupo-edit.component';
@@ -18,7 +17,12 @@ import { GrupoDeleteComponent } from './delete/grupo-delete/grupo-delete.compone
 import { PostDeleteComponent } from './delete/post-delete/post-delete.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
-import { ModelComponent } from './model/model.component';
+import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,6 @@ import { ModelComponent } from './model/model.component';
     GrupoComponent,
     SobreComponent,
     ContatoComponent,
-    PerfilComponent,
     PerfilEditComponent,
     PostEditComponent,
     GrupoEditComponent,
@@ -38,13 +41,22 @@ import { ModelComponent } from './model/model.component';
     PostDeleteComponent,
     CadastroComponent,
     EntrarComponent,
-    ModelComponent
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+
   ],
-  providers: [],
+
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
