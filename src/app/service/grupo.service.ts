@@ -30,4 +30,8 @@ export class GrupoService {
   deleteGrupo(idGrupo: number) {
     return this.http.delete(`http://localhost:8080/grupo/${idGrupo}`, this.token)
   }
+
+  postGrupo(grupo: Grupo): Observable<Grupo>{
+    return this.http.post<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+  }
 }
