@@ -1,1 +1,44 @@
-<p>cadastro works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 img-f">
+            <img src="https://i.imgur.com/zbkcI6N.png" alt="" width="1130px">
+        </div>
+        <div class="col-md-4 mt-3 pr-5 tabel-cad">
+            <h3>Cadastre-se</h3>
+            <div class="mb-1">
+                <label for="nome" class="form-label"></label>
+                <input type="text" class="form-control" id="nome" placeholder="Informe o seu nome" [(ngModel)]='user.nome'>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="form-label"></label>
+                <input type="email" class="form-control" id="email" placeholder="informe o seu email" [(ngModel)]='user.email'>
+              </div>
+              <div class="mb-1">
+                <label for="foto" class="form-label"></label>
+                <input type="text" class="form-control" id="foto" placeholder="url da foto" [(ngModel)]='user.foto'>
+              </div>
+              <div class="mb-1">
+                <label for="senha" class="form-label"></label>
+                <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha" placeholder="cadastre uma senha">
+              </div>
+              <div class="mb-1">
+                <label for="confSenha" class="form-label"></label>
+                <input type="password" class="form-control" id="confSenha" placeholder="confirme a senha" [(ngModel)]='user.senha'>
+              </div>
+              <div class="mb-1">
+                <label for="tipo"></label>
+                <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
+                    <option>Selecione um tipo de usuário:</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="instrutor">Instrutor</option>
+                </select>
+              </div>
+              <div class="mt-3 d-flex justify-content-center">
+                <button type="button" class="btn btn-dark mr-3" (click)='cadastrar()'>Cadastrar</button>
+                <button type="button" class="btn btn-danger" routerLink='/page'>Cancelar</button>
+              </div>
+             
+        </div>
+    </div>
+</div>
