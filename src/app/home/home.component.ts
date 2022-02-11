@@ -1,3 +1,4 @@
+import { AlertasService } from './../service/alertas.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -27,7 +28,9 @@ export class HomeComponent implements OnInit {
 
     private authService: AuthService,
     private router: Router,
-    private grupoService: GrupoService
+    private grupoService: GrupoService,
+    private alertas: AlertasService
+
   ) { }
 
   ngOnInit() {
@@ -51,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.grupoService.postGrupo(this.grupo).subscribe((resp:Grupo)=>{
       this.grupo = resp
       this.findAllTemas()
-      alert('Grupo cadastrado com sucesso!')
+      this.alertas.showAlertSuccess ('Grupo cadastrado com sucesso!')
       this.grupo = new Grupo()
 
     })
@@ -69,13 +72,15 @@ export class HomeComponent implements OnInit {
       this.user.tipo = this.tipUser
 
       if (this.user.senha != this.confiSenha) {
-        alert('As senhas estão incorretas, tente novamente!')
+        this.alertas.showAlertDanger('As senhas estão incorretas, tente novamente!')
         this.router.navigate(['/entrar'])
       } else {
         this.authService.cadastrar(this.user).subscribe((resp: Usuario)=> {
           this.user = resp
           this.router.navigate(['/entrar'])
-          alert('Usuário atualizado com sucesso, se logue novamente!')
+          
+          this.alertas.showAlertSuccess('Usuário atualizado com sucesso, se logue novamente!')
+            
         })
       }
   
