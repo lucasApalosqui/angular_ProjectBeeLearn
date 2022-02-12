@@ -9,6 +9,9 @@ import { Usuario } from '../model/Usuario';
   providedIn: 'root'
 })
 export class AuthService {
+  getByIdGrupo(GrupoId: number) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
 
