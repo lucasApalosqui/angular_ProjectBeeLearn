@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'entrar', component: EntrarComponent},
   {path: 'home', component: HomeComponent},
   {path:'grupo', component: GrupoComponent},
-  {path: 'post-edit/:idPost', component: PostEditComponent}
+  {path: 'post-edit/:idPost', component: PostEditComponent},
   {path: 'contato', component: ContatoComponent},
   {path: 'sobre', component: SobreComponent}
 
