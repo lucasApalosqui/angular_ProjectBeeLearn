@@ -4,8 +4,8 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HomeComponent } from './home/home.component';
-
 import { PageComponent } from './page/page.component';
+import { PostEditComponent } from './edit/post-edit/post-edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'page', pathMatch: 'full'},
@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'entrar', component: EntrarComponent},
   {path: 'home', component: HomeComponent},
   {path:'grupo', component: GrupoComponent},
+  {path: 'post-edit/:idPost', component: PostEditComponent}
   
 
 
