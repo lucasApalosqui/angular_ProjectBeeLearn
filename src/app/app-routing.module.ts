@@ -21,6 +21,7 @@ const routes: Routes = [
   {path: 'post-edit/:idPost', component: PostEditComponent},
   {path: 'contato', component: ContatoComponent},
   {path: 'sobre', component: SobreComponent}
+
   
 
 
