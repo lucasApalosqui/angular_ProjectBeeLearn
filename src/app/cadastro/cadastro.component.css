@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.back-cont{
+    background-image: url(https://i.imgur.com/0829Y41.png);
+    background-size: 1400px;
+    background-repeat: no-repeat;
+    background-color: #f4c220;
+    
+}
+
+.margin-b{
+    margin-bottom: 20px;
+}
+.tabel-cad{
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1.2px;
+    box-shadow: 5px 10px 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.all{
+    padding-bottom: 87px;
+    
+    
+}
+
+.cad-txt{
+    margin-bottom: -10px;
+    margin-top: 20px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.btns{
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: white;
+}

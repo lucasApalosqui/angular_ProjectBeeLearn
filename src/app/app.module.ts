@@ -19,6 +19,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AlertasComponent } from './alertas/alertas.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -41,13 +43,15 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     PostDeleteComponent,
     CadastroComponent,
     EntrarComponent,
+    AlertasComponent,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule, 
+    ModalModule.forRoot()
 
   ],
 

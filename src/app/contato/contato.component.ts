@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-contato',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private alertas: AlertasService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    window.scroll(0,0)
+    if(environment.token == ''){
+      this.router.navigate(['/contato'])
+    }
+  }
+
+  clickForm(){
+      this.alertas.showAlertSuccess ('Formulario enviado com sucesso!')
   }
 
 }

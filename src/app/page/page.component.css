@@ -1,4 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 .buttons button{
+
     width: 120px;
     height: 50px;
+    margin-bottom: 50px;
+    padding-top: -10px;
+    margin-top: -45px;
+    margin-right: 45px;
+    margin-left: -20px;
+}
+
+
+
+
+.page-2{
+    background-color: #100f0d;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+}
+
+.text-nos{
+    padding-top: 40px;
+    font-size: 70px;
+}
+
+.img-about{
+   margin-left: 20px;
+   margin-bottom: 100px;
+   margin-top: 40px;
+}
+
+.img-inst{
+    margin-bottom: 100px;
+    margin-top: 40px;
+    margin-left: 130px;
+ }
+
+.px{
+    font-size: 27px;
+    margin-bottom: 50px;
+}
+
+.px-2{
+    font-size: 40px;
+}
+
+.px-3{
+    font-size: 34px;
+}
+
+.txt{
+    font-size: 25px;
+}
+
+.page-1{
+    background-color: #f4c220;
+}
+
+.page-3{
+    background-color: #f4c220;
+    font-family: 'Indie Flower', cursive;
+}
+
+.img-bee{
+    width: 300px;
+   
+    
+}
+
+.img-bee:hover{
+    transform: scale(1.07);
+    cursor: pointer;
+}
+
+.img-perfil{
+    width: 120px;
+    height: 100px;
+  
+}
+
+.txt-perfil{
+    padding-right: 100px;
+    background-image: url(https://i.imgur.com/7tnamZq.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: 170px;
+    
+}
+
+.txt-perfil2{
+    padding-right: 100px;
+    background-image: url(https://i.imgur.com/RKLgZey.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: 170px;
+    
+}
+
+.txt-instrutor {
+    font-size: 60px;
+    background-image: url(https://i.imgur.com/4rxvLix.png);
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 230px;
+    text-decoration: underline;
+    margin-left: 30px;   
+}
+
+.txt-alune{
+    font-size: 60px;
+    background-image: url(https://i.imgur.com/zN2RVwT.png);
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 150px;
+    text-decoration: underline;
+    margin-left: 30px;  
+}
+
+.modal-color{
+    background-color: #100f0d;
+    color: white;
+}
+
+.img-ico{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
 }
