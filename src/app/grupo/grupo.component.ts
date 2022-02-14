@@ -115,8 +115,9 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
   atualizarPost(){
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
-      alert('Postagem atualizado com sucesso!')
-      this.router.navigate(['/grupo/:idGrupo'])
+      alert('Postagem atualizada com sucesso!')
+      this.router.navigate(['/home'])
+
     })
   }
 

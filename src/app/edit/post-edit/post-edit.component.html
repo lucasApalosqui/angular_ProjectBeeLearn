@@ -1,1 +1,51 @@
-<p>post-edit works!</p>
+<div class="bold-line" *ngFor="let i of listaGrupo">
+    <div class="container ">
+               
+        <div class="row d-flex justify-content-around align-items-center mt-5">
+            <div class="col-md-4 card">
+                <div class="modal-body">
+                    <h5>Editar Postagem</h5>
+                </div>
+        
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Título</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.tituloPost'>
+                </div>
+        
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Texto</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.texto'>
+                </div>
+        
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Matéria</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.materia'>
+                </div>
+        
+        
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" [routerLink]="['/home']" >Cancelar</button>
+                    <button type="button" class="btn btn-primary" (click)='atualizarPost()'>Salvar</button>
+                </div>
+        
+            </div>
+
+        
+            <div class="col-md-4 card ">
+                
+                    <div class="modal-body">
+                        <h5>Deseja apagar essa postagem?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" [routerLink]="['/home']">Cancelar</button>
+                        <button type="button" class="btn btn-primary" (click)='apagarPost()'>Confirmar</button>
+                    </div>
+
+                
+        
+            </div>
+        
+        </div>
+
+
+</div>
