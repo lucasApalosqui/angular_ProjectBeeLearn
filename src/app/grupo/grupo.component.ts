@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { GrupoService } from '../service/grupo.service';
 import { PostagemService } from '../service/postagem.service';
@@ -32,7 +33,8 @@ export class GrupoComponent implements OnInit {
 
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
 
   ) {}
 
@@ -75,14 +77,14 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
   atualizar(){
     this.grupoService.putGrupo(this.grupo).subscribe((resp: Grupo)=>{
       this.grupo = resp
-      alert('Grupo atualizado com sucesso!')
+      this.alertas.showAlertSuccess('Grupo atualizado com sucesso!')
       this.router.navigate(['/grupo/:idGrupo'])
     })
   }
 
   apagar(){
     this.grupoService.deleteGrupo(this.GrupoId).subscribe(()=>{
-      alert('Grupo apagado com sucesso!')
+      this.alertas.showAlertSuccess('Grupo apagado com sucesso!')
       this.router.navigate(['/home'])
     })
   }
@@ -115,15 +117,15 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
   atualizarPost(){
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
-      alert('Postagem atualizada com sucesso!')
-      this.router.navigate(['/home'])
+      this.alertas.showAlertSuccess('Postagem atualizado com sucesso!')
+      this.router.navigate(['/grupo/:idGrupo'])
 
     })
   }
 
   apagarPost(){
     this.postagemService.deletePostagem(this.PostId).subscribe(()=>{
-      alert('Grupo apagado com sucesso!')
+      this.alertas.showAlertSuccess('Grupo apagado com sucesso!')
       this.router.navigate(['/home'])
     })
   }
@@ -165,7 +167,7 @@ getAllGrupo(){
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
     })
   }
