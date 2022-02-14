@@ -1,74 +1,113 @@
-<!-- Container principal -->
-<div id="main-container" class="container">
-    <div class="row">
-        <!--Imagem de capa-->
-        <div class="col">
-            <img class="card-img-bottom"
-                src="http://25.media.tumblr.com/0b1588cd05222561206759a8476d8df3/tumblr_mna0n5UfDw1rc4kb8o7_1280.jpg"
-                height="400px">
-        </div>
-    </div>
+<div class="bold-line">
 
-    <div>
-        <!--Imagem de perfil-->
-        <img id="img-perfil" width="250px" height="250px"
-            src={{user.foto}}
-            class="rounded-circle img-thumbnail">
+    <div class="container-fluid d-flex  justify-content-center">
 
-        <!--Botões-->
-        <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-            data-bs-target="#cadastroGroup">Criar grupo</button>
-            <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal"
-                data-bs-target="#listGroup">Listar grupos</button>
-        </div>
-    </div>
+        <div class=" row d-flex justify-content-center mt-5">
 
-    <div class="row">
-        <div class="col-md-4">
-            <!--Informações perfil-->
-            <ul class="list-group list-group-flush text-center border-end">
-                <li class="list-group-item fs-1">{{user.nome}}</li>
-                <li class="list-group-item">{{user.bio}}</li>
-            </ul>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-primary mt-2"  data-bs-toggle="modal" data-bs-target="#updateUser">Editar perfil</button>
+            <!--CARD INFO USUARIO-->
+
+            <div class="row card  align-items-center flex-row justify-content-center mt-5 p-3 ml-5"
+                style="width: 1000px;" style="background-color:   #5d5c5c3f;">
+
+
+
+                <!--FOTO DE PERFIL-->
+                <div class="col-4">
+                    <div class="row d-flex justify-content-center">
+                        <img src={{user.foto}} width="200px" height="200px" class="rounded-circle img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-4 mt-2">
+                    <h3>{{user.nome}}</h3>
+                    <h6>{{user.email}}</h6>
+                    <h6>{{user.tipo}}</h6>
+
+                    <!--BOTÕES-->
+                    <div class="mt-4">
+                        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#cadastroGroup">Criar
+                            Grupo</button>
+
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="cursor: pointer;">
+                            <a data-bs-toggle="modal" data-bs-target="#updateUser">Editar</a>
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+
+                    </div>
+                </div>
+
+                <!--BIOGRAFIA-->
+
+                <div class="col-4 card">
+
+                    <div class="p-1">
+
+                        <h6 class="text-justify">{{user.bio}}</h6>
+
+                    </div>
+                </div>
             </div>
+
+        </div>
+
+    </div>
+
+
+    <!--NAV-->
+
+    <div class="container">
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-9">
+
+
+                <nav class="nav nav-justified p-0 m-0" *ngIf='listaGrupo.length'>
+                    <a class="nav-link active btn-outline text-light bg-gradient" style="background-color:   #a0a0a0;"
+                        aria-current="page" href="#meusGrupos">Meus Grupos</a>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" href="#">Minhas
+                        Postagens</a>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" href="#">Explore</a>
+                </nav>
+
+
+                <div class="tab-content mt-3" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+                        aria-labelledby="nav-todasPostagens-tab">
+
+                        <div class="row justify-content-center align-items-end">
+                            <div class="col-md-3" *ngFor='let i of listaGrupo'>
+
+                                <div class="card-columns">
+                                    <div class="card">
+                                        <img [routerLink]="['/grupo' , i.idGrupo]" src="{{i.urlImagem}}"
+                                            class="card-img-top" style="cursor: pointer;">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{i.nomeGrupo}}</h5>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
+
 </div>
 
-<!--Modal de lista grupos-->
-<div class="modal fade" id="listGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Lista de grupos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!--Tabela de grupos-->
-                <table class="table table-borderless table-hover">
-                    <thead id="color-thead">
-                        <tr>
-                            <th scope="col">Nome do grupo</th>
-                            <th scope="col" class="d-flex justify-content-end">Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let i of listaGrupo">
-                            <td>{{i.nomeGrupo}}</td>
-                            <td data-bs-dismiss="modal" [routerLink]="['/grupo' , i.idGrupo]" class="d-flex justify-content-end"><button class="btn btn-success">Entrar</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!--Modal de criação de grupos-->
 <div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,23 +121,27 @@
 
 
                 <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput" placeholder="Digite o nome do grupo">
+                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput"
+                        placeholder="Digite o nome do grupo">
                     <label for="floatingInput">Nome</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput" placeholder="Digite a descrição do grupo">
+                </div>
+                <div class="form-floating mb-3">
+                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput"
+                        placeholder="Digite a descrição do grupo">
                     <label for="floatingPassword">Descrição</label>
-                  </div>
-                  <div class="form-floating">
-                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput" placeholder="Coloque a url de imagem">
+                </div>
+                <div class="form-floating">
+                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput"
+                        placeholder="Coloque a url de imagem">
                     <label for="floatingPassword">Url de imagem</label>
-                  </div>
+                </div>
 
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button (click)="cadastrar()" type="button" class="btn btn-success" data-bs-dismiss="modal">Cadastrar</button>
+                <button (click)="cadastrar()" type="button" class="btn btn-success"
+                    data-bs-dismiss="modal">Cadastrar</button>
             </div>
         </div>
     </div>
@@ -113,50 +156,57 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body container">
-               
+
                 <div class="row container">
                     <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo" [(ngModel)]="user.nome">
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo"
+                            [(ngModel)]="user.nome">
                         <label for="nome"> Nome</label>
-                      </div>
-                      <div class="form-floating mb-3 col-md-6">
-                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo" [(ngModel)]="user.email">
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo"
+                            [(ngModel)]="user.email">
                         <label for="email">Email</label>
-                      </div>
+                    </div>
 
-                      <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem" [(ngModel)]="user.foto">
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem"
+                            [(ngModel)]="user.foto">
                         <label for="foto">Url da foto</label>
-                      </div>
-                      <div class="mb-1 col-md-6">
+                    </div>
+                    <div class="mb-1 col-md-6">
                         <label for="tipo"></label>
                         <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
                             <option>Selecione um tipo de usuário:</option>
                             <option value="aluno">Aluno</option>
                             <option value="instrutor">Instrutor</option>
                         </select>
-                      </div>
+                    </div>
 
-                          <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem" (input)='confirmSenha($event)'>
-                            <label for="senha">Senha</label>
-                          </div>
-                          <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="confSenha" placeholder="Coloque a url de imagem" [(ngModel)]='user.senha'>
-                            <label for="confSenha">Confirme a senha</label>
-                          </div>
-                          <div class="col-md-12 form-floating">
-                            <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem" [(ngModel)]="user.bio">
-                            <label for="Bio">Bio</label>
-                          </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem"
+                            (input)='confirmSenha($event)'>
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input type="password" class="form-control" id="confSenha"
+                            placeholder="Coloque a url de imagem">
+                        <label for="confSenha">Confirme a senha</label>
+                    </div>
+                    <div class="col-md-12 form-floating">
+                        <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem"
+                            [(ngModel)]="user.bio">
+                        <label for="Bio">Bio</label>
+                    </div>
                 </div>
-               
+
 
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="atualizar()">Atualizar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="atualizar()">Atualizar</button>
             </div>
         </div>
     </div>
