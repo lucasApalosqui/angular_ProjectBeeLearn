@@ -119,6 +119,7 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem atualizado com sucesso!')
       this.router.navigate(['/grupo/:idGrupo'])
+
     })
   }
 
