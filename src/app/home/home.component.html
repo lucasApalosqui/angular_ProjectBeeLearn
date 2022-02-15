@@ -30,7 +30,7 @@
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                             style="cursor: pointer;">
-                            <a data-bs-toggle="modal" data-bs-target="#updateUser">Editar</a>
+                            <a data-bs-toggle="modal" data-bs-target="#updateUser"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-user-avatars-dreamstale-lineal-dreamstale-5.png"/></a>
                             <span class="visually-hidden">unread messages</span>
                         </span>
 
@@ -61,59 +61,79 @@
 
         <div class="row justify-content-center mt-3">
             <div class="col-md-9">
-
-
+    
+    
                 <nav class="nav nav-justified p-0 m-0" *ngIf='listaGrupo.length'>
-                    <a class="nav-link active btn-outline text-light bg-gradient" style="background-color:   #a0a0a0;"
-                        aria-current="page" href="#meusGrupos">Meus Grupos</a>
-                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" href="#">Minhas
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;"
+                    id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Meus Grupos</a>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Minhas
                         Postagens</a>
-                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" href="#">Explore</a>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Explore</a>
                 </nav>
-
-
-                <div class="tab-content mt-3" id="nav-tabContent">
-
-                    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-                        aria-labelledby="nav-todasPostagens-tab">
-
+    
+                <div class="tab-content" id="pills-tabContent">
+                    
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="row justify-content-center align-items-end">
                             <div class="col-md-3" *ngFor='let i of listaGrupo'>
-
+                
                                 <div class="card-columns">
                                     <div class="card">
-                                        <img [routerLink]="['/grupo' , i.idGrupo]" src="{{i.urlImagem}}"
+                                        <img [routerLink]="['/grupo' , i.idGrupo]"  src="{{i.urlImagem}}"
                                             class="card-img-top" style="cursor: pointer;">
-
+                    
                                         <div class="card-body">
                                             <h5 class="card-title">{{i.nomeGrupo}}</h5>
-
+                    
                                         </div>
                                     </div>
-
+                    
                                 </div>
-
+                    
                             </div>
-
-                        </div>
-
+    
+                        </div>               
                     </div>
-                </div>
-
+                
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="card-columns">
+                              <div class="card text-center" *ngFor='let item of user.postagem'>
+                                <div class="card-body">
+                                  <h5 class="card-title m-0">{{item.tituloPost}}</h5>
+                                  <p class="card-text mt-3">{{item.texto}}</p>
+                                  <p class="card-text"><small class="text-muted">
+                                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                                  </small></p>
+                      
+                                </div>
+                                <button id="editar" type="button" class="btn btn-outline-success d-flex justify-content-end" (click)='findByIdGrupo()'  [routerLink]="['/post-edit', item.idPost]">Editar</button>
+    
+                              </div>
+                            </div>
+                      
+                          
+                    </div>
+                
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Explore</div>
+                
+                  </div>
+    
             </div>
-
+    
         </div>
     </div>
+    
+    </div>
 
-</div>
+
 
 
 
 <!--Modal de criação de grupos-->
-<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content bg-gradient" style="background-color:   #f4c320;">
+            <div class="modal-header titulos">
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de grupo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -139,9 +159,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button (click)="cadastrar()" type="button" class="btn btn-success"
-                    data-bs-dismiss="modal">Cadastrar</button>
+                <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color:   #100f0d;">Cancelar</button>
+                <button (click)="cadastrar()" type="button" class="btn active text-light"
+                    data-bs-dismiss="modal" style="background-color:   #100f0d;">Cadastrar</button>
             </div>
         </div>
     </div>
@@ -149,9 +169,9 @@
 
 <!--Modal de atualização de usuarios-->
 <div class="modal fade" id="updateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl bg-gradient"  style="background-color:   #f4c320;">
         <div class="modal-content">
-            <div class="modal-header ">
+            <div class="modal-header titulos ">
                 <h5 class="modal-title text-center" id="exampleModalLabel">Atualização de usuário</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -204,8 +224,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                <button type="button" class="btn text-light" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn text-light" data-bs-dismiss="modal"
                     (click)="atualizar()">Atualizar</button>
             </div>
         </div>
