@@ -2,8 +2,8 @@
     <div class="container ">
                
         <div class="row d-flex justify-content-around align-items-center mt-5">
-            <div class="col-md-4 card">
-                <div class="modal-body">
+            <div class="col-md-4 card modal-style">
+                <div class="modal-body ">
                     <h5>Editar Postagem</h5>
                 </div>
         
@@ -24,21 +24,21 @@
         
         
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" [routerLink]="['/home']" >Cancelar</button>
-                    <button type="button" class="btn btn-primary" (click)='atualizarPost()'>Salvar</button>
+                    <button type="button" class="btn " [routerLink]="['/home']" >Cancelar</button>
+                    <button type="button" class="btn " (click)='atualizarPost()'>Salvar</button>
                 </div>
         
             </div>
 
         
-            <div class="col-md-4 card ">
+            <div class="col-md-4 card modal-style">
                 
-                    <div class="modal-body">
+                    <div class="modal-body ">
                         <h5>Deseja apagar essa postagem?</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" [routerLink]="['/home']">Cancelar</button>
-                        <button type="button" class="btn btn-primary" (click)='apagarPost()'>Confirmar</button>
+                        <button type="button" class="btn " [routerLink]="['/home']">Cancelar</button>
+                        <button type="button" class="btn " (click)='apagarPost()'>Confirmar</button>
                     </div>
 
                 

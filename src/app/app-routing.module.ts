@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { PostEditComponent } from './edit/post-edit/post-edit.component';
 import { ContatoComponent } from './contato/contato.component';
-import { SobreComponent } from './sobre/sobre.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'page', pathMatch: 'full'},
@@ -20,7 +19,7 @@ const routes: Routes = [
   {path:'grupo', component: GrupoComponent},
   {path: 'post-edit/:idPost', component: PostEditComponent},
   {path: 'contato', component: ContatoComponent},
-  {path: 'sobre', component: SobreComponent}
+
 
   
 

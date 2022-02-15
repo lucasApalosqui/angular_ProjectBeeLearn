@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap%27');
 
-.titulos{
-  font-family: 'Indie Flower', cursive;
-}
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 
-#main-container{
+
+
+    #main-container {
     position:relative;
     }
-
+    
     #img-perfil{
     position: relative;
     margin-top: -120px;
@@ -33,31 +32,69 @@
       background-size:cover;
     }
 
-    
+      .nav-link{
+        background-color: rgb(34, 33, 33);
+        color: white;
+      }
 
+      .nav-link:checked {
+        background-color: black;
+      }
 
+      .post-tab{
+        border-radius: 10px;
+        border-width: 1.2px;
+        box-shadow: 5px 10px 7px;
+        
+      }
 
-    .sammy-wrap {
-      border-radius: 6px;
-      background-color: aliceblue;
-      border: 2px dashed gray;
-      max-width: 70%;
-      padding: 1em;
-      margin-bottom: 0.4em;
-  }
+      .marg{
+        margin-bottom: 20px;
+      }
+      
+      .divao{
+        max-width: 300px;
+        max-height: 300px;
+      }
 
+      .edit-btn{
+        position: static;
+        top: 100px;
+        right: 90px;
+        width: 50px;
+      }
 
+      .font-g{
+        font-size: 30px;
+      }
+      .image{
+        max-width: 300px;
+        max-height: 200px;
+        min-width: 300px;
+        min-height: 300px;
+        border-radius: 50%;
+      }
 
+      .modal-style{
+        background-color:   #f4c320;
+      }
 
+      .modal-style button{
+        background-color:   #100f0d;
+        color: white;
+      }
 
+      .modal-style h5{
+        font-family: 'Indie Flower', cursive;
+      }
 
+      .font-indie{
+        font-family: 'Indie Flower', cursive;
+        text-align: center;
+      }
 
-
-
-
-
-
-
-
-    
-   
+      .img-grup{
+        max-height: 200px;
+        min-height: 200px;
+      }
+      

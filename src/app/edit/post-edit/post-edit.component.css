@@ -10,3 +10,16 @@
       background: url('https://i.imgur.com/kDHb7bd.png') left no-repeat;
     background-size:cover;
   }
+
+  .modal-style{
+    background-color:   #f4c320;
+  }
+
+  .modal-style button{
+    background-color:   #100f0d;
+    color: white;
+  }
+
+  .modal-style h5{
+    font-family: 'Indie Flower', cursive;
+  }

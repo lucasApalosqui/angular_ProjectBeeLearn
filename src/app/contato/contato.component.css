@@ -1,3 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
 .layoutBee {
     background: url(https://i.imgur.com/kDHb7bd.png);
 }
+
+.modal-style{
+    background-color:   #f4c320;
+  }
+
+  .modal-style button{
+    background-color:   #100f0d;
+    color: white;
+  }
+
+  .modal-style h1{
+    font-family: 'Indie Flower', cursive;
+  }

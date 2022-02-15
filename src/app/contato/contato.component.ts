@@ -21,7 +21,7 @@ export class ContatoComponent implements OnInit {
 
     window.scroll(0,0)
     if(environment.token == ''){
-      this.router.navigate(['/contato'])
+      this.router.navigate(['/entrar'])
     }
   }
 
