@@ -6,6 +6,8 @@ import { Grupo } from '../model/Grupo';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 import { GrupoService } from '../service/grupo.service';
+import { Postagem } from '../model/Postagem';
+import { PostagemService } from '../service/postagem.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +24,9 @@ export class HomeComponent implements OnInit {
 
   grupo: Grupo = new Grupo()
   listaGrupo: Grupo[]
+  listaPost: Postagem []
+  postagem: Postagem = new Postagem
+  GrupoId: number
 
 
   constructor(  
@@ -29,13 +34,13 @@ export class HomeComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private grupoService: GrupoService,
+    private postagemService: PostagemService,
     private alertas: AlertasService
 
   ) { }
 
   ngOnInit() {
-    this.findAllTemas()
-
+    
     window.scroll(0,0)
     
     if(environment.token == ''){
@@ -43,23 +48,42 @@ export class HomeComponent implements OnInit {
     }
 
     this.findByIdUser(this.idUser)
+    this.getAllPostagem()
+    this.findByIdUserPost()
+    this.getAllGrupo()
   }
 
-  findAllTemas(){
+  getAllGrupo(){
     this.grupoService.getAllGrupo().subscribe((resp: Grupo[])=>{
       this.listaGrupo = resp
     })
   }
 
-  cadastrar(){
-    this.grupoService.postGrupo(this.grupo).subscribe((resp:Grupo)=>{
-      this.grupo = resp
-      this.findAllTemas()
-      this.alertas.showAlertSuccess ('Grupo cadastrado com sucesso!')
-      this.grupo = new Grupo()
-
+  getAllPostagem(){
+    this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
+      this.listaPost = resp
     })
   }
+
+  findByIdUserPost(){
+    this.authService.getByIdUser(this.idUser).subscribe((resp:Usuario)=>{
+      this.user = resp
+    })
+  }
+
+  findByIdGrupo(){
+    this.grupoService.getAllGrupo().subscribe((resp: Grupo[])=>{
+      this.grupo
+    })
+  }
+
+  findByIdUser(id: number){
+    this.authService.getByIdUser(id).subscribe((resp: Usuario)=> {
+      this.user = resp
+    })
+  }
+
+  
 
     confirmSenha(event: any){
       this.confiSenha = event.target.value
@@ -67,6 +91,17 @@ export class HomeComponent implements OnInit {
 
     tipoUser(event: any){
       this.tipUser = event.target.value
+    }
+
+    cadastrar(){
+      this.grupoService.postGrupo(this.grupo).subscribe((resp:Grupo)=>{
+        this.grupo = resp
+        this.getAllGrupo()
+        this.alertas.showAlertSuccess ('Grupo cadastrado com sucesso!')
+        this.grupo = new Grupo()
+      
+  
+      })
     }
 
     atualizar(){
@@ -87,9 +122,5 @@ export class HomeComponent implements OnInit {
   
     }
 
-    findByIdUser(id: number){
-      this.authService.getByIdUser(id).subscribe((resp: Usuario)=> {
-        this.user = resp
-      })
-    }
+  
 }
