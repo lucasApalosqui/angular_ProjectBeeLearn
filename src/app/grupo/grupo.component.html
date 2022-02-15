@@ -1,4 +1,6 @@
 <!-- Container principal -->
+<div class="bold-line">
+
 <div id="main-container " class="container">
   <div class="row">
     <!--Imagem de capa-->
@@ -8,15 +10,15 @@
   </div>
 
 
-  <label id="nome-grupo" class="fs-1 fw-bold">{{grupo.nomeGrupo}}</label>
+  <label id="nome-grupo" class="fs-1 fw-bold titulos">{{grupo.nomeGrupo}}</label>
   
 <div class="col-md-12">
   <div class="d-flex justify-content-end">
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editarGrupo">Editar
+  <button type="button" class="btn  text-light" data-bs-toggle="modal" data-bs-target="#editarGrupo" style="background-color:   #100f0d;">Editar
     grupo</button>
 
-  <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal"
-    data-bs-target="#deleteGrupo">Apagar grupo</button>
+  <button type="button" class="btn text-light ms-2" data-bs-toggle="modal"
+    data-bs-target="#deleteGrupo" style="background-color:   #100f0d;" >Apagar grupo</button>
   </div>
 </div>
 
@@ -25,7 +27,7 @@
     <!--Botoes-->
     <div class="d-flex justify-content-center">
       
-      <button type="button" class="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#criarPost">Nova
+      <button type="button" class="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#criarPost" style="background-color:   #f4c320;" #5d5c5c>Nova
         Postagem</button>
 
       
@@ -37,28 +39,35 @@
   <div class="row d-flex justify-content-center">
     
     <!--Postagens-->
-    <div class="card mt-4 col-8" *ngFor='let item of listaPost'>
-      <div class="card-title">
+    <div class="card mt-4 col-8" *ngFor='let item of grupo.postagem'>
+      <div class="card-title titulos">
         <div id="titulo" class="fw-bold mt-2 fs-3">{{item.tituloPost}}</div>
         
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p>{{item.texto}}</p>
-          <footer class="blockquote-footer fs-6">{{item.data}}</footer>
+          <footer class="blockquote-footer fs-6 mt-2">{{item.data | date: 'dd/MM/yyyy'}} | {{item.data | date: 'HH:mm'}}
+            <p class="card-text"><small class="text-muted">
+              Postado por: {{item.usuario.nome}}
+            </small></p>
+          </footer>
+     
         </blockquote>
       </div>
     </div>
 
     
   </div>
+</div>
+
 
   <!--MODAL EDITAR GRUPO-->
 
   <div class="modal fade" id="editarGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Editar Grupo</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -100,9 +109,9 @@
   <!--MODAL DELETE GRUPO-->
 
   <div class="modal fade" id="deleteGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -124,9 +133,9 @@
 
   <!--MODAL POST POSTAGEM-->
   <div class="modal fade" id="criarPost" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
@@ -160,86 +169,4 @@
     </div>
   </div>
 
-  <!--MODAL EDITAR POSTAGEM-->
-
-  <div class="modal fade" id="editarPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar Postagem</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Título</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.tituloPost'>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Descrição</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.texto'>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Imagem</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]='postagem.materia'>
-          </div>
-
-          <div class="form-group">
-            <label for="texto">Escolha um tema: </label>
-            <select name="tema" id="tema" class="form-control" [(ngModel)]='GrupoId'>
-              <option *ngFor='let item of listaGrupo' value="{{item.idGrupo}}">
-                {{item.descricao}}
-              </option>
-            </select>
-          </div>
-
-        </div>
-
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)='atualizarPost()'>Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-          <div class="form-group">
-            <label for="titulo">Matéria</label>
-            <textarea [(ngModel)]='postagem.materia' class="form-control" name="texto" id="texto" rows="3"></textarea>
-          </div>
-
-  <!--MODAL DELETE POST-->
-
-  <div class="modal fade" id="deletePost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h5>Tem certeza de que deseja apagar essa postagem?</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)='apagarPost()'>Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-</div>
+ 

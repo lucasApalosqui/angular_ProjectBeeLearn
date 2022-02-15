@@ -30,7 +30,7 @@
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                             style="cursor: pointer;">
-                            <a data-bs-toggle="modal" data-bs-target="#updateUser">Editar</a>
+                            <a data-bs-toggle="modal" data-bs-target="#updateUser"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-user-avatars-dreamstale-lineal-dreamstale-5.png"/></a>
                             <span class="visually-hidden">unread messages</span>
                         </span>
 
@@ -130,10 +130,10 @@
 
 
 <!--Modal de criação de grupos-->
-<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content bg-gradient" style="background-color:   #f4c320;">
+            <div class="modal-header titulos">
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de grupo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -159,9 +159,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button (click)="cadastrar()" type="button" class="btn btn-success"
-                    data-bs-dismiss="modal">Cadastrar</button>
+                <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color:   #100f0d;">Cancelar</button>
+                <button (click)="cadastrar()" type="button" class="btn active text-light"
+                    data-bs-dismiss="modal" style="background-color:   #100f0d;">Cadastrar</button>
             </div>
         </div>
     </div>
@@ -169,9 +169,9 @@
 
 <!--Modal de atualização de usuarios-->
 <div class="modal fade" id="updateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl bg-gradient"  style="background-color:   #f4c320;">
         <div class="modal-content">
-            <div class="modal-header ">
+            <div class="modal-header titulos ">
                 <h5 class="modal-title text-center" id="exampleModalLabel">Atualização de usuário</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -224,8 +224,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                <button type="button" class="btn text-light" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn text-light" data-bs-dismiss="modal"
                     (click)="atualizar()">Atualizar</button>
             </div>
         </div>
